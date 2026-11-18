@@ -18,9 +18,23 @@ npm start
 ```
 
 - มือถือนักเรียนต้องต่อ **Wi-Fi เดียวกับเครื่องครู** — QR-Code จะใช้ IP ในวง LAN ของเครื่องให้อัตโนมัติ
-- ถ้า deploy บนโดเมนจริง ให้ตั้ง `PUBLIC_URL=https://your-domain` เพื่อให้ QR ชี้ไปที่โดเมนนั้น
+- ลิงก์ที่ใช้ใน QR ตอน deploy ตั้งไว้ใน `.env.production` (`PUBLIC_URL` / `VITE_PUBLIC_URL` = https://game-mathemstics.vercel.app) — ไม่มีผลกับ `npm run dev`
 - ถ้าเครื่องครูเปิด firewall ต้องอนุญาตพอร์ต 5173 (dev) หรือ 3000 (production)
 - ทดสอบหลายผู้เล่นบนเครื่องเดียว: ใช้หน้าต่าง incognito/คนละเบราว์เซอร์ (แต่ละเบราว์เซอร์จำผู้เล่นไว้ 1 คน เพื่อให้กลับเข้าห้องเดิมได้เมื่อหลุด)
+
+## Deploy (หน้าเว็บบน Vercel + เซิร์ฟเวอร์เกมแยก)
+
+Vercel โฮสต์ได้เฉพาะหน้าเว็บ (static) — **รันเซิร์ฟเวอร์ Socket.IO ไม่ได้** จึงต้องแยกเป็น 2 ส่วน:
+
+1. **เซิร์ฟเวอร์เกม** — deploy repo นี้บนบริการที่รัน Node ค้างไว้ได้ (Render / Railway / Fly.io)
+   - Build: `npm install && npm run build` · Start: `npm start`
+2. **หน้าเว็บ (Vercel)** — ใส่ URL ของเซิร์ฟเวอร์จากข้อ 1 ใน `.env.production`:
+   ```
+   VITE_SERVER_URL=https://your-game-server.onrender.com
+   ```
+   แล้ว deploy ใหม่ (`vercel.json` ตั้ง rewrite ไว้แล้ว ลิงก์ `/join/xxxxxx` จึงเปิดตรงได้)
+
+หรือจะใช้แค่เซิร์ฟเวอร์จากข้อ 1 อย่างเดียวก็ได้ (มันเสิร์ฟหน้าเว็บด้วย) — ให้เปลี่ยน `PUBLIC_URL`/`VITE_PUBLIC_URL` เป็นโดเมนของเซิร์ฟเวอร์นั้นแทน
 
 ## โครงสร้าง
 

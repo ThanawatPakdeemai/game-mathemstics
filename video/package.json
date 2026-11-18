@@ -1,0 +1,10 @@
+{
+  "name": "mathmotion-video",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "mp4-muxer": "^5.2.2",
+    "mp4box": "^2.5.0",
+    "playwright": "^1.62.1"
+  }
+}

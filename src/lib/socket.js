@@ -1,7 +1,13 @@
 import { io } from 'socket.io-client';
 import { useEffect, useState } from 'react';
 
-export const socket = io({ transports: ['websocket', 'polling'] });
+// ถ้าหน้าเว็บกับเซิร์ฟเวอร์เกมอยู่คนละโดเมน (เช่นหน้าเว็บบน Vercel) ให้ตั้ง VITE_SERVER_URL
+export const SERVER_URL = (import.meta.env.VITE_SERVER_URL || '').replace(/\/$/, '');
+export const PUBLIC_URL = (import.meta.env.VITE_PUBLIC_URL || '').replace(/\/$/, '');
+
+export const socket = SERVER_URL
+  ? io(SERVER_URL, { transports: ['websocket', 'polling'] })
+  : io({ transports: ['websocket', 'polling'] });
 
 /** ส่ง event แล้วรอผลตอบกลับ (ack) */
 export function emitAsync(event, payload) {

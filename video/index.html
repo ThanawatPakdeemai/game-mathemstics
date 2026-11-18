@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MathMotion Intro Renderer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@500;600&family=Prompt:wght@500;600&display=block" rel="stylesheet" />
+    <style>
+      html, body { margin: 0; background: #111; }
+      canvas { display: block; width: 100vw; height: auto; }
+      /* force font download */
+      .warm { position: absolute; opacity: 0; font: 600 20px Mitr; } .warm2 { position: absolute; opacity: 0; font: 500 20px Prompt; }
+    </style>
+  </head>
+  <body>
+    <span class="warm">ก MathMotion ∑</span><span class="warm2">ก ข</span>
+    <canvas id="out" width="1920" height="1080"></canvas>
+    <script type="module" src="./render.js"></script>
+  </body>
+</html>
