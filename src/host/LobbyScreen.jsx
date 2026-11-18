@@ -4,6 +4,7 @@ import { GRADES, LOBBY_MS } from '../../shared/constants.js';
 import { Avatar, Brand, DifficultyBadge } from '../components/ui.jsx';
 import { characterById } from '../lib/characters.js';
 import { formatClock, untilMs, useNow } from '../lib/time.js';
+import { PUBLIC_URL, SERVER_URL } from '../lib/socket.js';
 
 export function RoomHeader({ view, right }) {
   const s = view.settings;
@@ -30,7 +31,7 @@ export function RoomHeader({ view, right }) {
 function useJoinHosts() {
   const [info, setInfo] = useState(null);
   useEffect(() => {
-    fetch('/api/info')
+    fetch(`${SERVER_URL}/api/info`)
       .then((r) => r.json())
       .then(setInfo)
       .catch(() => setInfo({ lanIps: [] }));
@@ -39,7 +40,9 @@ function useJoinHosts() {
 }
 
 function buildJoinUrl(code, info, lanIp) {
-  if (info?.publicUrl) return `${info.publicUrl.replace(/\/$/, '')}/join/${code}`;
+  // ลำดับ: ลิงก์ที่ตั้งตอน build (VITE_PUBLIC_URL) → PUBLIC_URL ของเซิร์ฟเวอร์ → IP ในวง LAN
+  const base = PUBLIC_URL || info?.publicUrl;
+  if (base) return `${base.replace(/\/$/, '')}/join/${code}`;
   let host = window.location.hostname;
   if (['localhost', '127.0.0.1', '::1'].includes(host) && lanIp) host = lanIp;
   const port = window.location.port ? `:${window.location.port}` : '';
@@ -101,7 +104,7 @@ export default function LobbyScreen({ view, offset, action, onLeave }) {
               </select>
             </label>
           )}
-          {isLocalHost && !info?.lanIps?.length && !info?.publicUrl && (
+          {isLocalHost && !info?.lanIps?.length && !info?.publicUrl && !PUBLIC_URL && (
             <p className="warn-text">ไม่พบ IP ในวง LAN — มือถือต้องเชื่อมต่อ Wi-Fi เดียวกับเครื่องนี้</p>
           )}
 

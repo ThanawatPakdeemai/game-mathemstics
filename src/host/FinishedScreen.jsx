@@ -62,6 +62,10 @@ function Podium({ rows }) {
 function ResultsTable({ view, mode }) {
   const { rows } = view.results;
   const key = mode === 'accuracy' ? 'accuracy' : 'speed';
+  // อันดับตามโหมดที่เลือก (คะแนนเท่ากันได้อันดับเดียวกัน)
+  const sorted = [...rows].sort((a, b) => b[key] - a[key] || a.rank - b.rank);
+  const modeRank = new Map();
+  sorted.forEach((r, i) => modeRank.set(r.id, i > 0 && r[key] === sorted[i - 1][key] ? modeRank.get(sorted[i - 1].id) : i + 1));
   return (
     <div className="table-wrap">
       <table className="results-table">
@@ -76,11 +80,9 @@ function ResultsTable({ view, mode }) {
           </tr>
         </thead>
         <tbody>
-          {[...rows]
-            .sort((a, b) => b[key] - a[key] || a.rank - b.rank)
-            .map((r) => (
+          {sorted.map((r) => (
               <tr key={r.id}>
-                <td className="col-rank">{r.rank}</td>
+                <td className="col-rank">{modeRank.get(r.id)}</td>
                 <td className="col-name">
                   <span className="name-cell">
                     <span>{r.name}</span>
