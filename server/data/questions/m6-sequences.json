@@ -1,0 +1,27 @@
+{
+  "grade": "m6",
+  "topic": "sequences",
+  "title": "ลำดับและอนุกรม",
+  "source": "AI generated",
+  "questions": [
+    { "id": "seq-001", "difficulty": "easy", "question": "ลำดับ 2, 5, 8, 11, … พจน์ถัดไปคือข้อใด", "choices": ["13", "14", "15", "16"], "answer": 1, "explanation": "เพิ่มขึ้นทีละ 3" },
+    { "id": "seq-002", "difficulty": "easy", "question": "ลำดับเลขคณิต 3, 7, 11, … มีผลต่างร่วมเท่าใด", "choices": ["3", "4", "7", "10"], "answer": 1, "explanation": "d = 7 − 3 = 4" },
+    { "id": "seq-003", "difficulty": "easy", "question": "ลำดับเรขาคณิต 2, 6, 18, … มีอัตราส่วนร่วมเท่าใด", "choices": ["2", "3", "4", "6"], "answer": 1, "explanation": "r = 6 / 2 = 3" },
+    { "id": "seq-004", "difficulty": "easy", "question": "ถ้า aₙ = 2n + 1 แล้ว a₅ เท่ากับเท่าใด", "choices": ["9", "10", "11", "12"], "answer": 2, "explanation": "a₅ = 2(5) + 1 = 11" },
+    { "id": "seq-005", "difficulty": "easy", "question": "1 + 2 + 3 + … + 10 มีค่าเท่าใด", "choices": ["45", "50", "55", "100"], "answer": 2, "explanation": "n(n + 1)/2 = 10 · 11 / 2 = 55" },
+    { "id": "seq-006", "difficulty": "easy", "question": "ลำดับ 3, 6, 12, 24, … พจน์ถัดไปคือข้อใด", "choices": ["30", "36", "48", "72"], "answer": 2, "explanation": "คูณด้วย 2 ทุกพจน์" },
+    { "id": "seq-007", "difficulty": "easy", "question": "ถ้า aₙ = n² แล้ว a₄ เท่ากับเท่าใด", "choices": ["8", "12", "16", "20"], "answer": 2, "explanation": "a₄ = 4² = 16" },
+    { "id": "seq-008", "difficulty": "medium", "question": "ลำดับเลขคณิตที่มี a₁ = 5 และ d = 3 พจน์ที่ 20 คือข้อใด", "choices": ["57", "60", "62", "65"], "answer": 2, "explanation": "a₂₀ = 5 + 19 · 3 = 62" },
+    { "id": "seq-009", "difficulty": "medium", "question": "ลำดับเรขาคณิตที่มี a₁ = 3 และ r = 2 พจน์ที่ 6 คือข้อใด", "choices": ["48", "64", "96", "192"], "answer": 2, "explanation": "a₆ = 3 · 2⁵ = 96" },
+    { "id": "seq-010", "difficulty": "medium", "question": "2 + 4 + 6 + … + 40 มีค่าเท่าใด", "choices": ["400", "410", "420", "440"], "answer": 2, "explanation": "20 พจน์ ผลบวก = 20(2 + 40)/2 = 420" },
+    { "id": "seq-011", "difficulty": "medium", "question": "ผลบวก 10 พจน์แรกของอนุกรม 1 + 2 + 4 + 8 + … คือข้อใด", "choices": ["511", "512", "1023", "1024"], "answer": 2, "explanation": "S₁₀ = (2¹⁰ − 1)/(2 − 1) = 1023" },
+    { "id": "seq-012", "difficulty": "medium", "question": "ลำดับเลขคณิตมี a₃ = 10 และ a₇ = 22 แล้ว a₁ เท่ากับเท่าใด", "choices": ["1", "4", "7", "10"], "answer": 1, "explanation": "4d = 12 จึงได้ d = 3 และ a₁ = 10 − 2(3) = 4" },
+    { "id": "seq-013", "difficulty": "medium", "question": "จำนวนนับตั้งแต่ 1 ถึง 100 ที่ 7 หารลงตัวมีกี่จำนวน", "choices": ["13", "14", "15", "16"], "answer": 1, "explanation": "7, 14, …, 98 มีทั้งหมด 14 จำนวน" },
+    { "id": "seq-014", "difficulty": "hard", "question": "อนุกรมอนันต์ 1 + 1/2 + 1/4 + 1/8 + … มีผลบวกเท่าใด", "choices": ["1", "3/2", "2", "หาค่าไม่ได้"], "answer": 2, "explanation": "S∞ = a₁/(1 − r) = 1/(1 − ½) = 2" },
+    { "id": "seq-015", "difficulty": "hard", "question": "อนุกรมอนันต์ 9 + 3 + 1 + 1/3 + … มีผลบวกเท่าใด", "choices": ["12", "27/2", "18", "27"], "answer": 1, "explanation": "S∞ = 9/(1 − ⅓) = 27/2" },
+    { "id": "seq-016", "difficulty": "hard", "question": "ผลบวกของจำนวนนับตั้งแต่ 1 ถึง 100 ที่ 3 หารลงตัว เท่ากับเท่าใด", "choices": ["1584", "1683", "1700", "1782"], "answer": 1, "explanation": "3 + 6 + … + 99 มี 33 พจน์ = 33(3 + 99)/2 = 1683" },
+    { "id": "seq-017", "difficulty": "hard", "question": "lim (n → ∞) (2n + 1)/(n + 3) มีค่าเท่าใด", "choices": ["0", "1/3", "2", "หาค่าไม่ได้"], "answer": 2, "explanation": "หารด้วย n ทั้งเศษและส่วน ได้ 2/1 = 2" },
+    { "id": "seq-018", "difficulty": "hard", "question": "Σ (2k − 1) เมื่อ k = 1 ถึง 10 มีค่าเท่าใด", "choices": ["90", "100", "110", "121"], "answer": 1, "explanation": "ผลบวกจำนวนคี่ n ตัวแรก = n² = 100" },
+    { "id": "seq-019", "difficulty": "hard", "question": "ทศนิยมซ้ำ 0.272727… เขียนเป็นเศษส่วนได้ข้อใด", "choices": ["27/100", "3/11", "2/7", "27/90"], "answer": 1, "explanation": "0.2̇7̇ = 27/99 = 3/11" }
+  ]
+}

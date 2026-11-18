@@ -1,0 +1,100 @@
+สร้างเกมออนไลน์ Join Session socket ได้จากการเข้าร่วมสแกน QR Code
+ในการเล่นเกมนี้คุณครูจะต่อโปรเจคเตอร์แสดงหน้าจอของคุณครู, นักเรียนจะเป็นคนใช้มือถือสแกน QR-Code join session
+
+1. คุณครูคือเจ้าของเว็บไซต์ มีหน้าต่าง setting  step การทำงานของโปรแกรม 
+
+1.1 เลือกระดับชั้น ม.4, ม.5, ม.6 เป็นลักษณะปุ่ม button
+1.1.1 ช่องกรอก text ข้อความ ชื่อห้อง เช่น ม.6/9 
+1.2 เลือกหมวดหมู่การเรียนการสอน โดยหากเลือก ม.4 จะมี option ให้เลือกเนื้อหา 2ตัวเลือก เซตและตรรกศาสตร์ 
+ม.5 1 ตัวเลือก ฟังก์ชั่นตรีโกณมิติ ม.6 1ตัวเลือก ลำดับและอนุกรม โดยอ้างอิง options จากเลือกระดับชั้น
+1.3 ระดับความยาก มี 3 ระดับ ง่าย, กลาง, ยาก เป็นลักษณะปุ่ม button โดยระดับความยาก ง่าย มี 5 ข้อ กลาง 10 ข้อ ยาก 15 ข้อ โดย default ง่าย
+1.4 เลือกเวลาแต่ละข้อ จะเป็นปุ่ม button 1นาที 3 นาที 5นาที 10นาที ตามลำดับ โดย default 5 นาที
+1.5 มีเลือกปุ่ม radio button เลือกจะได้อย่างใดอย่างหนึ่งซึ่งจะไปสัมพันธ์กับระบบถัดไป คือ 1. เฉลยคำตอบที่ละข้อ 2. เฉลยคำตอบทั้งหมดที่เดียว
+1.6 button “สร้างห้องเกม” ***หากเลือกไม่ครบจะไม่สามารถสร้างห้องได้
+*** เนื้อโจทย์และตอบ ม.4 เซตและตรรกศาสตร์ ม.5 ฟังก์ชั่นตรีโกณมิติ ม.6 ลำดับและอนุกรม Ai เป็นคนช่วยหามาให้
+*** ออกแบบฟังก์ชัน import json สำหรับข้อมูล โจทย์ที่อยากเพิ่มเองในอนาคต(ยังไม่ต้องทำ)
+2. อ้างอิง 1.6 button สร้างห้องเกม จะต้องระบบ Generate QR-Code ให้ ตัวแทนกลุ่มเข้าสแกนเข้าห้องจะรองรับ 15 คน
+QR-Code มีระยะใช้งานภายใน 5 นาที หากหมด ต้องสร้างใหม่ มีตัวนับถอยหลังเวลา และ มี ปุ่มเริ่มเกม และ ปุ่มยกเลิก สำหรับคุณครู
+2.1 เมื่อมีการ join ห้องเข้ามา จะแสดงรายชื่อผู้ join ห้อง โดยเมื่อ
+2.2 มีข้อความแสดงมุมขวาบนจำนวนผู้เข้า join เช่น 5/15
+2.3 ฝั่งนักเรียน (คน join) จะ มี carousel กรอบตัวละคร ให้เลือก Character 15 ตัว โดยถ้าหากเลือกตัวละครแล้ว คนอื่นจะไม่สามารถเลือกซ้ำกับเราได้ ยกเว้นเรายกเลิกเลือกตัวละครนั้น คนอื่นจึงสามารถเลือกตัวละครได้ โดยระบบมีเวลานับถอย 5 นาทีเวลาเดียวกับ QR-Code ของครู หากนักเรียนเลือกไม่เสร็จจะทำการสุ่มตัวละครให้ 
+2.4 ฝั่งนักเรียน (คน join) มีช่องให้กรอก text ชื่อผู้ join input placeholder เขียนว่า “ชื่อตัวแทนกลุ่มหรือนักเรียน”
+2.5 หากคุณครู (เจ้าของ QR-Code) กดเริ่มเกมก่อนหมด เวลาจะทำการ สุ่มตัวละครและสุ่มชื่อผู้ เข้า join ให้อัตโนมัติทันที
+3. เมื่อกดเริ่มเกม จะปรากฎ รายชื่อผู้เข้าร่วมหมด พร้อมตัวละคร Character และชื่อ พร้อมมี Ui ตัวเลขลอยนับถอยเข้าสู่การแข่งขัน 5 วินาที และ มีปุ่ม pause หยุดเวลาชั่วคราว 
+4. คาแรคเตอร์ตัวละครเอาจากโฟลเดอร์  racing-characters-15
+5. เมื่อเริ่มเกมแล้วจะมี Ux/Ui แทบ progress จับเวลาถอยหลัง จากการตั้งค่า 1.4  และมีโจทย์ ให้ช้อยให้เลือก 4 ข้อ ครูมีปุ่มหยุดเวลาชั่วคราวหากกดต่อจะนับถอยหลังจากเดิม และปุ่มกด Next  ข้อถัดไป 
+5.1 หากคุณครูกดปุ่ม Next จะหยุดกิจกรรมของนักเรียนที่กำลังทำโจทย์ข้อนั้นๆทันทีและเริ่มข้อถัดไป
+5.2 หากถึงข้อสุดท้ายจะไม่มีปุ่มข้อ Next แต่จะมีปุ่มจบเกม หากครูกดปุ่มหยุดเกมจะจบการแข่งขันทันทีและสรุปผล
+6. มือถือนักเรียนจะแสดงผลช้อย 4 ข้อ เมื่อกดเลือกคำตอบจะขึ้นมินิเกม
+6.1 คาแรคเตอร์ตัวละครของนักเรียนที่เลือกไว้ข้างต้น นักเรียนต้องกันกดตัวละครรัวๆเร็วๆ โดยตัวละครเมื่อโดนจะกระตุกกระติกไปมาซ้ายขวา และขึ้นตัวเลขจำนวนข้างบนตัวละครตามจำนวนครั้งการกด หากกดครบ 100 ครั้งถึงจะส่งคำตอบมาฝั่งเครื่องคุณครู ลักษณะ (Pop Cat)
+6.2 คะแนนความถูกต้อง
+6.2.1 หากเวลาหมดและนักเรียนยังไม่ตอบจะได้ 0 คะแนน
+6.2.2 หากตอบถูก “คะแนนความถูกต้อง” +2 คะแนน ผิด 0 คะแนน
+6.3 คะแนนความเร็ว
+6.3.1 ลำดับการให้คะแนนความเร็วการกดที่1 +1 คะแนน ที่2 0.5 และที่3 เป็นต้นไป 0 ()
+6.3.2 หากกดไม่ทันก่อนหมดเวลาจะได้ 0 คะแนนความเร็ว
+6.4 จากข้อ 1.5 หากมีเลือก เฉลยคำตอบที่ละข้อ จะเฉลยคำตอบนั้น จะปุ่ม pause และปุ่ม Next มีเวลาถอย 10 วินาทีก่อนไปข้อถัดไป และเมื่อจบข้อสุดท้ายก็จะ เฉลยคำตอบทั้งหมด
+6.4.1 หากเลือก เฉลยคำตอบทั้งหมดที่เดียว จะแสดงผลเฉลยหลังจบทุกข้อ
+6.5 เมื่อจบการแข่งขัน จะมีปุ่ม “แสดงผลการแข่งขัน” อยู่ล่างสุด
+7.Ux/Ui แสดงตารางการแข่งขัน โดยแบ่งโหมด 2 หมวด คะแนนความถูกต้องและคะแนนความเร็ว
+7.1 แนวตั้งเป็นตารางคะแนนความถูกต้องและคะแนนความเร็ว
+7.2 แนวนอนเป็นรายชื่อที่ join เข้ามาพร้อมคาแรตเตอร์ตัวละครด้านขวาเล็กๆ ให้พอดีกับขนาดข้อความและ layout
+8 มีปุ่ม export ข้อมูลสรุปคะแนนต่างๆ เป็นไฟล์ csv หรือ xlsx ให้คุณครู
+
+
+Design a playful gamified educational web application UI called "MathMotion"
+for Thai high school students learning Sets and Logic.
+
+Visual style:
+- Playful Educational Game UI
+- Bright pastel candy color palette
+- Primary colors: sky blue, royal blue and purple
+- Accent colors: pink, yellow, orange and success green
+- Soft blue-white background
+- Subtle colorful gradients
+- Large rounded cards (20–28px border radius)
+- Soft shadows and subtle colored borders
+- Rounded pill-shaped buttons
+- Friendly cartoon-style educational icons
+- Cute but clean and modern
+- Fun classroom game atmosphere
+- Avoid overly childish kindergarten style
+
+UX:
+- Designed for classroom projector screens
+- Large Thai typography with excellent readability
+- Strong visual hierarchy
+- Large 4-choice answer buttons ก ข ค ง
+- Clear selected, correct and incorrect states
+- Large score display
+- Timer and progress bar
+- Hand gesture detection indicator
+- Gamification elements such as score, streak, bonus,
+  trophy, leaderboard and level badges
+- Minimal text during gameplay
+- High contrast between content and background
+- Responsive desktop, tablet and mobile layout
+
+UI components:
+- Rounded white cards with pastel borders
+- Sky-to-white gradient headers
+- Yellow/orange CTA buttons
+- Green success feedback
+- Pink/red incorrect feedback
+- Colorful difficulty badges:
+  Easy = green
+  Medium = yellow/orange
+  Hard = purple/pink
+- Cute math illustrations for Sets and Logic
+- Small decorative mathematical symbols such as
+  ∪, ∩, ⊂, ∈, ∀, ∃, →, ↔
+- Friendly teacher and student cartoon illustrations
+
+Overall feeling:
+fun, energetic, friendly, modern, educational,
+interactive and motivating.
+
+The application should feel like a modern classroom game,
+not a traditional school management system.
+
+

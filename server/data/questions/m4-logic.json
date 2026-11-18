@@ -1,0 +1,27 @@
+{
+  "grade": "m4",
+  "topic": "logic",
+  "title": "ตรรกศาสตร์",
+  "source": "AI generated",
+  "questions": [
+    { "id": "logic-001", "difficulty": "easy", "question": "ข้อใดเป็นประพจน์", "choices": ["กรุณาปิดประตู", "2 + 3 = 6", "x + 1 = 5", "วันนี้อากาศดีจังเลย!"], "answer": 1, "explanation": "2 + 3 = 6 เป็นข้อความที่บอกค่าความจริงได้ (เป็นเท็จ)" },
+    { "id": "logic-002", "difficulty": "easy", "question": "ถ้า p เป็นจริง และ q เป็นเท็จ ข้อใดมีค่าความจริงเป็นจริง", "choices": ["p ∧ q", "p ∨ q", "p → q", "p ↔ q"], "answer": 1, "explanation": "p ∨ q เป็นจริงเมื่อมีตัวใดตัวหนึ่งเป็นจริง" },
+    { "id": "logic-003", "difficulty": "easy", "question": "p → q มีค่าความจริงเป็นเท็จในกรณีใด", "choices": ["p จริง, q จริง", "p จริง, q เท็จ", "p เท็จ, q จริง", "p เท็จ, q เท็จ"], "answer": 1, "explanation": "เงื่อนไขเป็นเท็จกรณีเดียวคือ จริง → เท็จ" },
+    { "id": "logic-004", "difficulty": "easy", "question": "นิเสธของ “ฉันชอบแมว และ ฉันชอบหมา” คือข้อใด", "choices": ["ฉันไม่ชอบแมว และ ฉันไม่ชอบหมา", "ฉันชอบแมว หรือ ฉันชอบหมา", "ฉันไม่ชอบแมว หรือ ฉันไม่ชอบหมา", "ถ้าฉันชอบแมว แล้วฉันไม่ชอบหมา"], "answer": 2, "explanation": "~(p ∧ q) ≡ ~p ∨ ~q" },
+    { "id": "logic-005", "difficulty": "easy", "question": "~(~p) สมมูลกับข้อใด", "choices": ["p", "~p", "p ∧ ~p", "p ∨ ~p"], "answer": 0, "explanation": "นิเสธของนิเสธคือประพจน์เดิม" },
+    { "id": "logic-006", "difficulty": "easy", "question": "p ↔ q มีค่าความจริงเป็นจริงเมื่อใด", "choices": ["p จริงเสมอ", "q จริงเสมอ", "p และ q มีค่าความจริงต่างกัน", "p และ q มีค่าความจริงเหมือนกัน"], "answer": 3, "explanation": "ผลสองทางเป็นจริงเมื่อทั้งสองข้างมีค่าความจริงเหมือนกัน" },
+    { "id": "logic-007", "difficulty": "easy", "question": "กำหนดเอกภพสัมพัทธ์คือเซตของจำนวนจริง ข้อใดมีค่าความจริงเป็นจริง", "choices": ["∀x[x² ≥ 0]", "∀x[x + 1 > x + 2]", "∃x[x² < 0]", "∀x[x > 0]"], "answer": 0, "explanation": "กำลังสองของจำนวนจริงทุกจำนวนไม่ติดลบ" },
+    { "id": "logic-008", "difficulty": "medium", "question": "p → q สมมูลกับข้อใด", "choices": ["~p ∨ q", "p ∨ ~q", "~p ∧ q", "q → p"], "answer": 0, "explanation": "p → q ≡ ~p ∨ q" },
+    { "id": "logic-009", "difficulty": "medium", "question": "นิเสธของ p → q คือข้อใด", "choices": ["~p → ~q", "p ∧ ~q", "~p ∨ q", "q → p"], "answer": 1, "explanation": "~(p → q) ≡ ~(~p ∨ q) ≡ p ∧ ~q" },
+    { "id": "logic-010", "difficulty": "medium", "question": "ถ้า p → q มีค่าความจริงเป็นเท็จ ข้อใดมีค่าความจริงเป็นจริง", "choices": ["(p ∨ r) → q", "q → p", "p ∧ q", "~p"], "answer": 1, "explanation": "p จริง q เท็จ ดังนั้น q → p คือ เท็จ → จริง ซึ่งเป็นจริง" },
+    { "id": "logic-011", "difficulty": "medium", "question": "นิเสธของ ∀x[P(x)] คือข้อใด", "choices": ["∀x[~P(x)]", "∃x[P(x)]", "∃x[~P(x)]", "~∃x[P(x)]"], "answer": 2, "explanation": "~∀x[P(x)] ≡ ∃x[~P(x)]" },
+    { "id": "logic-012", "difficulty": "medium", "question": "ข้อใดสมมูลกับ p → q", "choices": ["~q → ~p", "q → p", "~p → ~q", "p ∧ q"], "answer": 0, "explanation": "แย้งสลับที่ (contrapositive) สมมูลกับประพจน์เดิม" },
+    { "id": "logic-013", "difficulty": "medium", "question": "ข้อใดเป็นสัจนิรันดร์", "choices": ["p ∧ ~p", "p ∨ ~p", "p → ~p", "p ↔ ~p"], "answer": 1, "explanation": "p ∨ ~p เป็นจริงทุกกรณี" },
+    { "id": "logic-014", "difficulty": "medium", "question": "p ↔ q สมมูลกับข้อใด", "choices": ["(p → q) ∨ (q → p)", "(p → q) ∧ (q → p)", "(p ∧ q) → p", "~p ↔ q"], "answer": 1, "explanation": "ผลสองทาง คือ เงื่อนไขทั้งไปและกลับ" },
+    { "id": "logic-015", "difficulty": "hard", "question": "ข้อใดเป็นสัจนิรันดร์", "choices": ["[(p → q) ∧ p] → q", "[(p → q) ∧ q] → p", "(p → q) → (q → p)", "(p ∨ q) → p"], "answer": 0, "explanation": "เป็นรูปแบบการอ้างเหตุผล Modus Ponens" },
+    { "id": "logic-016", "difficulty": "hard", "question": "ถ้า (p ∧ q) → r มีค่าความจริงเป็นเท็จ ข้อใดมีค่าความจริงเป็นจริง", "choices": ["p → r", "q ∧ r", "~r → (p ∧ q)", "r ∨ ~q"], "answer": 2, "explanation": "ได้ p จริง q จริง r เท็จ ดังนั้น ~r → (p ∧ q) คือ จริง → จริง" },
+    { "id": "logic-017", "difficulty": "hard", "question": "นิเสธของ ∀x∃y[x + y = 0] คือข้อใด", "choices": ["∃x∀y[x + y ≠ 0]", "∀x∃y[x + y ≠ 0]", "∃x∃y[x + y ≠ 0]", "∀x∀y[x + y ≠ 0]"], "answer": 0, "explanation": "เปลี่ยน ∀ เป็น ∃, ∃ เป็น ∀ และนิเสธประโยคเปิด" },
+    { "id": "logic-018", "difficulty": "hard", "question": "กำหนด U = {−1, 0, 1} ข้อใดมีค่าความจริงเป็นจริง", "choices": ["∀x[x² = x]", "∃x[x² < 0]", "∀x[x³ = x]", "∀x[x + 1 > 0]"], "answer": 2, "explanation": "(−1)³ = −1, 0³ = 0, 1³ = 1 จริงทุกตัว" },
+    { "id": "logic-019", "difficulty": "hard", "question": "~(p → q) ∨ (p ∧ q) สมมูลกับข้อใด", "choices": ["p", "q", "~p", "p ∧ q"], "answer": 0, "explanation": "(p ∧ ~q) ∨ (p ∧ q) ≡ p ∧ (~q ∨ q) ≡ p" }
+  ]
+}
