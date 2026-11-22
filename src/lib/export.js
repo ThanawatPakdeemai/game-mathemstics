@@ -1,9 +1,9 @@
-import { CHOICE_LABELS, DIFFICULTIES, GRADES } from '../../shared/constants.js';
+import { CHOICE_LABELS, DIFFICULTIES, gradeTitle } from '../../shared/constants.js';
 import { characterById } from './characters.js';
 
 function meta(view) {
   const s = view.settings;
-  const grade = GRADES.find((g) => g.id === s.grade)?.label || s.grade;
+  const grade = gradeTitle(s.grade);
   const diff = DIFFICULTIES.find((d) => d.id === s.difficulty)?.label || s.difficulty;
   return { grade, diff, topic: s.topicLabel, className: s.className };
 }

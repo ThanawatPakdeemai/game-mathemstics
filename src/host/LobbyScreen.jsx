@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import { GRADES, LOBBY_MS } from '../../shared/constants.js';
+import { gradeTitle, LOBBY_MS } from '../../shared/constants.js';
 import { Avatar, Brand, DifficultyBadge } from '../components/ui.jsx';
 import { characterById } from '../lib/characters.js';
 import { formatClock, untilMs, useNow } from '../lib/time.js';
@@ -8,7 +8,7 @@ import { PUBLIC_URL, SERVER_URL } from '../lib/socket.js';
 
 export function RoomHeader({ view, right }) {
   const s = view.settings;
-  const grade = GRADES.find((g) => g.id === s.grade)?.label;
+  const grade = gradeTitle(s.grade);
   return (
     <header className="room-header">
       <Brand small />

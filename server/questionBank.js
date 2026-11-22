@@ -2,7 +2,7 @@
 //
 // รูปแบบไฟล์ (ใช้กับการ import โจทย์เองในอนาคตด้วย):
 // {
-//   "grade": "m4",            // m4 | m5 | m6
+//   "grade": "m4",            // id ชั้นปีใน EDUCATION_TIERS (shared/constants.js)
 //   "topic": "sets",          // ต้องตรงกับ topic ใน shared/constants.js
 //   "title": "เซต",
 //   "questions": [
