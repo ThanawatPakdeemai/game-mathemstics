@@ -1,5 +1,5 @@
 // ตัวละครจากโฟลเดอร์ racing-characters-15
-const files = import.meta.glob("../../racing-characters-15/*.png", {
+const files = import.meta.glob("../../racing-characters-15/*.avif", {
   eager: true,
   import: "default",
 });
@@ -32,7 +32,7 @@ export const CHARACTERS = Object.entries(files)
       file
         .split("/")
         .pop()
-        .replace(/^\d+-|\.png$/g, ""),
+        .replace(/^\d+-|\.avif$/g, ""),
   }));
 
 export const characterById = (id) =>
