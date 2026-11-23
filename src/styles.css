@@ -113,6 +113,7 @@ p { margin: 0; }
 .badge-easy { background: var(--green-soft); color: #15803d; }
 .badge-medium { background: #fff1d6; color: #c2410c; }
 .badge-hard { background: linear-gradient(90deg, var(--purple-soft), var(--pink-soft)); color: #a21caf; }
+.badge-veryhard { background: #fee2e2; color: #b91c1c; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -193,6 +194,7 @@ p { margin: 0; }
 .pill-easy.is-active { background: linear-gradient(135deg, #4ade80, var(--green)); box-shadow: 0 10px 20px -10px var(--green); }
 .pill-medium.is-active { background: linear-gradient(135deg, var(--yellow), var(--orange)); color: #4a2500; box-shadow: 0 10px 20px -10px var(--orange); }
 .pill-hard.is-active { background: linear-gradient(135deg, var(--purple), var(--pink)); box-shadow: 0 10px 20px -10px var(--pink); }
+.pill-veryhard.is-active { background: linear-gradient(135deg, #ef4444, #7f1d1d); box-shadow: 0 10px 20px -10px #b91c1c; }
 
 .field { display: flex; flex-direction: column; gap: 6px; margin-top: 18px; }
 .field span { font-weight: 600; color: var(--ink-soft); }

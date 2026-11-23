@@ -8,7 +8,7 @@
 //   "questions": [
 //     {
 //       "id": "sets-001",              // ไม่บังคับ (ระบบสร้างให้)
-//       "difficulty": "easy",          // easy | medium | hard
+//       "difficulty": "easy",          // easy | medium | hard | veryhard
 //       "question": "ข้อความโจทย์",
 //       "choices": ["ก", "ข", "ค", "ง"], // ต้องมี 4 ตัวเลือก
 //       "answer": 0,                   // index ของคำตอบที่ถูก (0-3)
@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 import { findTopic } from '../shared/constants.js';
 
 const QUESTIONS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'data', 'questions');
-const DIFFICULTY_ORDER = ['easy', 'medium', 'hard'];
+const DIFFICULTY_ORDER = ['easy', 'medium', 'hard', 'veryhard'];
 
 /** key -> Map(id -> question) */
 const bank = new Map();
@@ -48,7 +48,7 @@ export function validateQuestionSet(data) {
       qErrors.push(`${where}: choices ต้องเป็นข้อความ 4 ตัวเลือก`);
     if (!Number.isInteger(q?.answer) || q.answer < 0 || q.answer > 3) qErrors.push(`${where}: answer ต้องเป็น 0-3`);
     const difficulty = q?.difficulty ?? 'medium';
-    if (!DIFFICULTY_ORDER.includes(difficulty)) qErrors.push(`${where}: difficulty ต้องเป็น easy/medium/hard`);
+    if (!DIFFICULTY_ORDER.includes(difficulty)) qErrors.push(`${where}: difficulty ต้องเป็น easy/medium/hard/veryhard`);
     errors.push(...qErrors);
     if (qErrors.length === 0) {
       questions.push({
@@ -91,7 +91,7 @@ export function loadQuestionBank() {
 
 export function questionBankSummary() {
   return [...bank.entries()].map(([key, pool]) => {
-    const counts = { easy: 0, medium: 0, hard: 0 };
+    const counts = { easy: 0, medium: 0, hard: 0, veryhard: 0 };
     for (const q of pool.values()) counts[q.difficulty]++;
     return { key, total: pool.size, ...counts };
   });
@@ -131,9 +131,10 @@ function shuffle(arr) {
 export function pickQuestions(grade, topic, difficulty, count) {
   const pool = [...(bank.get(keyOf(grade, topic))?.values() || [])];
   const preference = {
-    easy: ['easy', 'medium', 'hard'],
-    medium: ['medium', 'easy', 'hard'],
-    hard: ['hard', 'medium', 'easy'],
+    easy: ['easy', 'medium', 'hard', 'veryhard'],
+    medium: ['medium', 'easy', 'hard', 'veryhard'],
+    hard: ['hard', 'veryhard', 'medium', 'easy'],
+    veryhard: ['veryhard', 'hard', 'medium', 'easy'],
   }[difficulty] || DIFFICULTY_ORDER;
 
   const picked = [];

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  DEFAULT_SETTINGS,
   DIFFICULTIES,
   EDUCATION_TIERS,
   findGrade,
@@ -28,8 +27,8 @@ export default function SetupScreen({ onCreate }) {
   const [grade, setGrade] = useState(null);
   const [className, setClassName] = useState("");
   const [topic, setTopic] = useState(null);
-  const [difficulty, setDifficulty] = useState(DEFAULT_SETTINGS.difficulty);
-  const [timePerQuestion, setTime] = useState(DEFAULT_SETTINGS.timePerQuestion);
+  const [difficulty, setDifficulty] = useState(null);
+  const [timePerQuestion, setTime] = useState(null);
   const [revealMode, setRevealMode] = useState(null);
   const [busy, setBusy] = useState(false);
 

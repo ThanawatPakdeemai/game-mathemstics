@@ -84,7 +84,7 @@ racing-characters-15/      รูปตัวละคร 15 ตัว
 ```
 
 - `grade`: `m4` | `m5` | `m6`, `topic`: `sets` | `logic` | `trig` | `sequences`
-- `difficulty`: `easy` | `medium` | `hard`, `answer`: index ของคำตอบที่ถูก (0 = ก … 3 = ง)
+- `difficulty`: `easy` | `medium` | `hard` | `veryhard`, `answer`: index ของคำตอบที่ถูก (0 = ก … 3 = ง)
 - ระบบสลับลำดับตัวเลือกให้ทุกเกม
 - ฟังก์ชัน `importQuestionSet(json, { persist })` ใน `server/questionBank.js` เตรียมไว้สำหรับทำปุ่ม import บนหน้าเว็บในอนาคต
 

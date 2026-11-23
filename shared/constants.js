@@ -63,6 +63,7 @@ export const DIFFICULTIES = [
   { id: 'easy', label: 'ง่าย', count: 5 },
   { id: 'medium', label: 'กลาง', count: 10 },
   { id: 'hard', label: 'ยาก', count: 15 },
+  { id: 'veryhard', label: 'ยากมาก', count: 20 },
 ];
 
 /** เวลาต่อข้อ (วินาที) */
@@ -77,11 +78,6 @@ export const REVEAL_MODES = [
   { id: 'each', label: 'เฉลยคำตอบทีละข้อ' },
   { id: 'end', label: 'เฉลยคำตอบทั้งหมดทีเดียว' },
 ];
-
-export const DEFAULT_SETTINGS = {
-  difficulty: 'easy',
-  timePerQuestion: 300,
-};
 
 export const MAX_PLAYERS = 15;
 export const CHARACTER_COUNT = 15;
