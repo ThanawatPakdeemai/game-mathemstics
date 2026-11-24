@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { CHOICE_LABELS } from '../../shared/constants.js';
 import { socket, emitAsync } from '../lib/socket.js';
 import { remainingMs, useNow, withOffset } from '../lib/time.js';
-import { Avatar, Brand, ConnectionBanner, PausedOverlay, TimerBar, Toast } from '../components/ui.jsx';
+import { Avatar, Brand, ConnectionBanner, PausedOverlay, SubjectMascots, TimerBar, Toast } from '../components/ui.jsx';
 import PlayerLobby from './PlayerLobby.jsx';
 import TapGame from './TapGame.jsx';
 
@@ -31,6 +31,7 @@ function JoinForm({ error, onJoin }) {
   const [code, setCode] = useState('');
   return (
     <div className="center-screen">
+      <SubjectMascots count={4} />
       <div className="card join-card">
         <Brand />
         <h1>เข้าร่วมเกม</h1>

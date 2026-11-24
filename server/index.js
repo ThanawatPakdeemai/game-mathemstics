@@ -17,7 +17,8 @@ console.log('[questions] โหลดคลังโจทย์:', summary.map(
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, { cors: { origin: true } });
+// ไฟล์โจทย์ที่ครูนำเข้าจำกัด 1 MB จึงเผื่อขนาดข้อความ socket ไว้ 2 MB
+const io = new Server(server, { cors: { origin: true }, maxHttpBufferSize: 2e6 });
 
 /** @type {Map<string, Room>} */
 const rooms = new Map();
@@ -51,26 +52,30 @@ if (fs.existsSync(DIST)) {
 }
 
 // ---------- Broadcast ----------
+// รวมการเปลี่ยนแปลงที่เกิดติด ๆ กันใน 40ms เป็นการส่งรอบเดียว
+// (ห้อง 50 คน: นักเรียนพิมพ์ชื่อ/เลือกตัวละครพร้อมกัน จะไม่ส่ง state ซ้ำหลายสิบรอบ)
+const BROADCAST_MS = 40;
 const pendingBroadcast = new Set();
 
 function broadcast(room) {
   if (pendingBroadcast.has(room.id)) return;
   pendingBroadcast.add(room.id);
-  queueMicrotask(() => {
+  setTimeout(() => {
     pendingBroadcast.delete(room.id);
     const ids = io.sockets.adapter.rooms.get(room.id);
     if (!ids) return;
     let hostView;
+    const shared = {};
     for (const sid of ids) {
       const socket = io.sockets.sockets.get(sid);
       if (!socket) continue;
       if (socket.data.role === 'host') socket.emit('state', (hostView ??= room.hostView()));
-      else if (socket.data.role === 'player') socket.emit('state', room.playerView(socket.data.playerId));
+      else if (socket.data.role === 'player') socket.emit('state', room.playerView(socket.data.playerId, shared));
     }
-  });
+  }, BROADCAST_MS);
 }
 
-function createRoom(settings) {
+function createRoom(settings, customQuestions) {
   const room = new Room(settings, {
     onChange: (r) => {
       // อัปเดตรหัสห้องเมื่อสร้าง QR ใหม่
@@ -80,6 +85,7 @@ function createRoom(settings) {
       broadcast(r);
     },
     generateCode,
+    customQuestions,
   });
   rooms.set(room.id, room);
   codes.set(room.code, room.id);
@@ -111,9 +117,9 @@ io.on('connection', (socket) => {
 
   // ----- ครู -----
   socket.on('host:create', (raw, ack) => {
-    const { settings, errors } = sanitizeSettings(raw);
+    const { settings, customQuestions, errors } = sanitizeSettings(raw);
     if (errors) return reply(ack, { error: errors.join(', ') });
-    const room = createRoom(settings);
+    const room = createRoom(settings, customQuestions);
     if (room.questions.length === 0) {
       rooms.delete(room.id);
       codes.delete(room.code);
@@ -247,6 +253,6 @@ setInterval(() => {
 }, 10 * 60 * 1000).unref();
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`\n🎮 MathMotion server พร้อมใช้งานที่ http://localhost:${PORT}`);
+  console.log(`\n🎮 QuizMotion server พร้อมใช้งานที่ http://localhost:${PORT}`);
   for (const ip of lanAddresses()) console.log(`   ในวง LAN: http://${ip}:${PORT}`);
 });

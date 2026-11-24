@@ -1,18 +1,18 @@
-import { CHOICE_LABELS, DIFFICULTIES, GRADES } from '../../shared/constants.js';
+import { CHOICE_LABELS, DIFFICULTIES, gradeTitle } from '../../shared/constants.js';
 import { characterById } from './characters.js';
 
 function meta(view) {
   const s = view.settings;
-  const grade = GRADES.find((g) => g.id === s.grade)?.label || s.grade;
-  const diff = DIFFICULTIES.find((d) => d.id === s.difficulty)?.label || s.difficulty;
-  return { grade, diff, topic: s.topicLabel, className: s.className };
+  const grade = gradeTitle(s.grade);
+  const diff = s.difficulty === 'all' ? 'ทั้งชุด' : DIFFICULTIES.find((d) => d.id === s.difficulty)?.label || s.difficulty;
+  return { grade, diff, topic: s.topicLabel, subject: s.subjectLabel, author: s.author, className: s.className };
 }
 
 function fileBase(view) {
   const m = meta(view);
   const d = new Date();
   const date = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  return `MathMotion_${m.className}_${m.topic}_${date}`.replace(/[\\/:*?"<>|\s]+/g, '_');
+  return `QuizMotion_${m.className}_${m.topic}_${date}`.replace(/[\\/:*?"<>|\s]+/g, '_');
 }
 
 /** แถวสรุปคะแนน: 1 แถวต่อผู้เล่น */
@@ -56,10 +56,12 @@ function questionRows(view) {
 function infoRows(view) {
   const m = meta(view);
   return [
-    ['MathMotion — สรุปผลการแข่งขัน'],
+    ['QuizMotion — สรุปผลการแข่งขัน'],
     ['ห้อง', m.className],
     ['ระดับชั้น', m.grade],
-    ['หมวดหมู่', m.topic],
+    ['วิชา', m.subject || '-'],
+    ['ชุดโจทย์', m.topic],
+    ...(m.author ? [['ผู้สร้างโจทย์', m.author]] : []),
     ['ระดับความยาก', m.diff],
     ['จำนวนข้อ', view.review.length],
     ['วันที่', new Date().toLocaleString('th-TH')],

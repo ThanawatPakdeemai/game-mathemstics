@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import { GRADES, LOBBY_MS } from '../../shared/constants.js';
-import { Avatar, Brand, DifficultyBadge } from '../components/ui.jsx';
+import { gradeTitle, LOBBY_MS } from '../../shared/constants.js';
+import { Avatar, Brand, crowd, DifficultyBadge } from '../components/ui.jsx';
 import { characterById } from '../lib/characters.js';
 import { formatClock, untilMs, useNow } from '../lib/time.js';
 import { PUBLIC_URL, SERVER_URL } from '../lib/socket.js';
 
 export function RoomHeader({ view, right }) {
   const s = view.settings;
-  const grade = GRADES.find((g) => g.id === s.grade)?.label;
+  const grade = gradeTitle(s.grade);
   return (
     <header className="room-header">
       <Brand small />
       <div className="room-meta">
         <span className="chip chip-strong">{s.className}</span>
         <span className="chip">{grade}</span>
+        {s.subjectLabel && <span className="chip chip-subject">{s.subjectLabel}</span>}
         <span className="chip">{s.topicLabel}</span>
         <DifficultyBadge id={s.difficulty} />
       </div>
@@ -58,6 +59,7 @@ export default function LobbyScreen({ view, offset, action, onLeave }) {
   const isLocalHost = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
 
   const left = untilMs(view.lobbyEndsAt, offset, now);
+  const dense = crowd(view.players.length, [72, 52, 44]);
   const pct = (left / LOBBY_MS) * 100;
   const expired = view.qrExpired || left <= 0;
 
@@ -123,10 +125,10 @@ export default function LobbyScreen({ view, offset, action, onLeave }) {
               {view.players.length === 0 ? 'รอนักเรียนสแกน QR-Code…' : 'นักเรียนกำลังเลือกตัวละครและกรอกชื่อ'}
             </span>
           </header>
-          <ul className="player-grid">
+          <ul className={`player-grid ${dense.cls}`}>
             {view.players.map((p) => (
               <li key={p.id} className={`player-tile ${p.connected ? '' : 'is-offline'} pop-in`}>
-                <Avatar characterId={p.characterId} size={72} placeholder="…" />
+                <Avatar characterId={p.characterId} size={dense.size} placeholder="…" />
                 <div className="player-tile-text">
                   <b>{p.name || <i className="muted">กำลังกรอกชื่อ…</i>}</b>
                   <small>{characterById(p.characterId)?.name || 'กำลังเลือกตัวละคร'}</small>
@@ -138,7 +140,7 @@ export default function LobbyScreen({ view, offset, action, onLeave }) {
             ))}
             {Array.from({ length: Math.max(0, Math.min(3, view.maxPlayers - view.players.length)) }).map((_, i) => (
               <li key={`empty-${i}`} className="player-tile is-empty">
-                <div className="avatar avatar-ghost" style={{ width: 72, height: 72 }} />
+                <div className="avatar avatar-ghost" style={{ width: dense.size, height: dense.size }} />
                 <span className="muted">ว่าง</span>
               </li>
             ))}
