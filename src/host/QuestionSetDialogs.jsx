@@ -24,11 +24,22 @@ export function downloadJson(data, filename) {
   URL.revokeObjectURL(url);
 }
 
-const downloadTemplate = () =>
+export const downloadTemplate = () =>
   downloadJson(QUESTION_SET_TEMPLATE, "quizmotion-ตัวอย่างโจทย์.json");
 
-/** กล่องโต้ตอบแบบ <dialog> (กด Esc หรือคลิกพื้นหลังเพื่อปิด) */
-function Modal({ open, onClose, title, children, className = "" }) {
+/**
+ * กล่องโต้ตอบแบบ <dialog> (กด Esc หรือคลิกพื้นหลังเพื่อปิด)
+ * actions = ปุ่มเพิ่มเติมบนหัวกล่อง, closeOnBackdrop = false สำหรับฟอร์มยาวๆ กันเผลอปิด
+ */
+export function Modal({
+  open,
+  onClose,
+  title,
+  children,
+  actions = null,
+  closeOnBackdrop = true,
+  className = "",
+}) {
   const ref = useRef(null);
   useEffect(() => {
     const d = ref.current;
@@ -43,11 +54,12 @@ function Modal({ open, onClose, title, children, className = "" }) {
       className={`modal ${className}`}
       aria-label={title}
       onClose={onClose}
-      onClick={(e) => e.target === ref.current && onClose()}
+      onClick={(e) => closeOnBackdrop && e.target === ref.current && onClose()}
     >
       <div className="modal-body">
         <header className="modal-head">
           <h2>{title}</h2>
+          {actions}
           <button
             type="button"
             className="icon-btn"
@@ -63,7 +75,7 @@ function Modal({ open, onClose, title, children, className = "" }) {
   );
 }
 
-function readFile(file) {
+export function readFile(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(reader.result);
@@ -237,38 +249,6 @@ export function ImportDialog({ open, onClose, onImport }) {
           </div>
         </>
       )}
-    </Modal>
-  );
-}
-
-/** ปุ่ม "สร้างโจทย์ของฉัน" — ฟอร์มยังไม่พร้อม แนะนำให้ใช้ไฟล์ตัวอย่างไปก่อน */
-export function CreateComingSoonDialog({ open, onClose, onOpenImport }) {
-  return (
-    <Modal open={open} onClose={onClose} title="สร้างโจทย์ของฉัน">
-      <p className="coming-soon">
-        <span className="badge badge-medium">เร็ว ๆ นี้</span>
-        ฟอร์มสร้างโจทย์กำลังพัฒนา ระหว่างนี้ดาวน์โหลดไฟล์ตัวอย่าง แก้โจทย์ในไฟล์ แล้วกด
-        “นำเข้าโจทย์ (.json)”
-      </p>
-      <div className="modal-actions">
-        <button
-          type="button"
-          className="btn btn-ghost"
-          onClick={downloadTemplate}
-        >
-          ดาวน์โหลดไฟล์ตัวอย่าง
-        </button>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={() => {
-            onClose();
-            onOpenImport();
-          }}
-        >
-          นำเข้าโจทย์ (.json)
-        </button>
-      </div>
     </Modal>
   );
 }

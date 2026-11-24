@@ -16,7 +16,8 @@ import {
 } from "../../shared/questionSet.js";
 import { Brand } from "../components/ui.jsx";
 import { SUBJECT_LIST } from "../lib/subjects.js";
-import { CreateComingSoonDialog, ImportDialog } from "./QuestionSetDialogs.jsx";
+import QuestionBuilder from "./QuestionBuilder.jsx";
+import { ImportDialog } from "./QuestionSetDialogs.jsx";
 
 function Step({ n, title, done, aside, children }) {
   return (
@@ -512,10 +513,12 @@ export default function SetupScreen({ onCreate }) {
         onClose={() => setDialog(null)}
         onImport={applyImport}
       />
-      <CreateComingSoonDialog
+      <QuestionBuilder
         open={dialog === "create"}
         onClose={() => setDialog(null)}
-        onOpenImport={() => setDialog("import")}
+        onUse={applyImport}
+        defaultSubject={subject}
+        defaultGrade={grade}
       />
     </>
   );
