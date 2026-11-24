@@ -2,13 +2,13 @@
 //
 // รูปแบบไฟล์ (ใช้กับการ import โจทย์เองในอนาคตด้วย):
 // {
-//   "grade": "m4",            // m4 | m5 | m6
+//   "grade": "m4",            // id ชั้นปีใน EDUCATION_TIERS (shared/constants.js)
 //   "topic": "sets",          // ต้องตรงกับ topic ใน shared/constants.js
 //   "title": "เซต",
 //   "questions": [
 //     {
 //       "id": "sets-001",              // ไม่บังคับ (ระบบสร้างให้)
-//       "difficulty": "easy",          // easy | medium | hard
+//       "difficulty": "easy",          // easy | medium | hard | veryhard
 //       "question": "ข้อความโจทย์",
 //       "choices": ["ก", "ข", "ค", "ง"], // ต้องมี 4 ตัวเลือก
 //       "answer": 0,                   // index ของคำตอบที่ถูก (0-3)
@@ -19,51 +19,16 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { findTopic } from '../shared/constants.js';
+import { ALL_QUESTIONS, DIFFICULTY_ORDER, validateQuestionSet } from '../shared/questionSet.js';
+
+export { validateQuestionSet };
 
 const QUESTIONS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'data', 'questions');
-const DIFFICULTY_ORDER = ['easy', 'medium', 'hard'];
 
 /** key -> Map(id -> question) */
 const bank = new Map();
 const keyOf = (grade, topic) => `${grade}:${topic}`;
-
-/**
- * ตรวจสอบโครงสร้างชุดโจทย์ คืนค่า { ok, errors, set } โดย set คือข้อมูลที่ทำความสะอาดแล้ว
- */
-export function validateQuestionSet(data) {
-  const errors = [];
-  if (!data || typeof data !== 'object') return { ok: false, errors: ['ไฟล์ต้องเป็น JSON object'] };
-  if (!findTopic(data.grade, data.topic)) errors.push(`ไม่รู้จัก grade/topic: ${data.grade}/${data.topic}`);
-  if (!Array.isArray(data.questions) || data.questions.length === 0) errors.push('ต้องมี questions อย่างน้อย 1 ข้อ');
-
-  const questions = [];
-  (data.questions || []).forEach((q, i) => {
-    const where = `ข้อที่ ${i + 1}`;
-    const qErrors = [];
-    if (typeof q?.question !== 'string' || !q.question.trim()) qErrors.push(`${where}: ไม่มีข้อความโจทย์`);
-    if (!Array.isArray(q?.choices) || q.choices.length !== 4 || q.choices.some((c) => typeof c !== 'string' || !c.trim()))
-      qErrors.push(`${where}: choices ต้องเป็นข้อความ 4 ตัวเลือก`);
-    if (!Number.isInteger(q?.answer) || q.answer < 0 || q.answer > 3) qErrors.push(`${where}: answer ต้องเป็น 0-3`);
-    const difficulty = q?.difficulty ?? 'medium';
-    if (!DIFFICULTY_ORDER.includes(difficulty)) qErrors.push(`${where}: difficulty ต้องเป็น easy/medium/hard`);
-    errors.push(...qErrors);
-    if (qErrors.length === 0) {
-      questions.push({
-        id: String(q.id || `${data.topic}-${crypto.randomUUID().slice(0, 8)}`),
-        difficulty,
-        question: q.question.trim(),
-        choices: q.choices.map((c) => c.trim()),
-        answer: q.answer,
-        explanation: typeof q.explanation === 'string' ? q.explanation.trim() : '',
-      });
-    }
-  });
-
-  return { ok: errors.length === 0, errors, set: { grade: data.grade, topic: data.topic, title: data.title || '', questions } };
-}
 
 function addToBank(set) {
   const key = keyOf(set.grade, set.topic);
@@ -91,7 +56,7 @@ export function loadQuestionBank() {
 
 export function questionBankSummary() {
   return [...bank.entries()].map(([key, pool]) => {
-    const counts = { easy: 0, medium: 0, hard: 0 };
+    const counts = { easy: 0, medium: 0, hard: 0, veryhard: 0 };
     for (const q of pool.values()) counts[q.difficulty]++;
     return { key, total: pool.size, ...counts };
   });
@@ -124,36 +89,46 @@ function shuffle(arr) {
   return a;
 }
 
-/**
- * สุ่มโจทย์ตามระดับความยาก: เลือกจากระดับที่ตรงก่อน แล้วค่อยเติมจากระดับใกล้เคียง
- * และสลับลำดับตัวเลือก ก ข ค ง ให้ทุกครั้ง
- */
-export function pickQuestions(grade, topic, difficulty, count) {
-  const pool = [...(bank.get(keyOf(grade, topic))?.values() || [])];
-  const preference = {
-    easy: ['easy', 'medium', 'hard'],
-    medium: ['medium', 'easy', 'hard'],
-    hard: ['hard', 'medium', 'easy'],
-  }[difficulty] || DIFFICULTY_ORDER;
+const PREFERENCE = {
+  easy: ['easy', 'medium', 'hard', 'veryhard'],
+  medium: ['medium', 'easy', 'hard', 'veryhard'],
+  hard: ['hard', 'veryhard', 'medium', 'easy'],
+  veryhard: ['veryhard', 'hard', 'medium', 'easy'],
+};
 
+/** เลือกโจทย์จากระดับที่ตรงก่อน แล้วค่อยเติมจากระดับใกล้เคียง เรียงจากง่ายไปยาก */
+function pickByDifficulty(pool, difficulty, count) {
   const picked = [];
-  for (const level of preference) {
+  for (const level of PREFERENCE[difficulty] || DIFFICULTY_ORDER) {
     for (const q of shuffle(pool.filter((p) => p.difficulty === level))) {
       if (picked.length >= count) break;
       picked.push(q);
     }
   }
-  picked.sort((a, b) => DIFFICULTY_ORDER.indexOf(a.difficulty) - DIFFICULTY_ORDER.indexOf(b.difficulty));
+  return picked.sort((a, b) => DIFFICULTY_ORDER.indexOf(a.difficulty) - DIFFICULTY_ORDER.indexOf(b.difficulty));
+}
 
-  return picked.map((q) => {
-    const order = shuffle([0, 1, 2, 3]);
-    return {
-      id: q.id,
-      difficulty: q.difficulty,
-      question: q.question,
-      choices: order.map((i) => q.choices[i]),
-      answer: order.indexOf(q.answer),
-      explanation: q.explanation,
-    };
-  });
+const toRoomQuestion = (q, order = [0, 1, 2, 3]) => ({
+  id: q.id,
+  difficulty: q.difficulty,
+  question: q.question,
+  choices: order.map((i) => q.choices[i]),
+  answer: order.indexOf(q.answer),
+  explanation: q.explanation,
+});
+
+/** สุ่มโจทย์จากคลังในระบบ และสลับลำดับตัวเลือก ก ข ค ง ให้ทุกครั้ง */
+export function pickQuestions(grade, topic, difficulty, count) {
+  const pool = [...(bank.get(keyOf(grade, topic))?.values() || [])];
+  return pickByDifficulty(pool, difficulty, count).map((q) => toRoomQuestion(q, shuffle([0, 1, 2, 3])));
+}
+
+/**
+ * เลือกโจทย์จากชุดที่ครูนำเข้า (ใช้เฉพาะห้องนั้น ไม่เข้าคลัง)
+ * - difficulty = "all": ใช้ทุกข้อตามลำดับในไฟล์
+ * - ไม่สลับตัวเลือก เพราะครูอาจเขียนตัวเลือกแบบ "ถูกทั้งข้อ ก และ ข"
+ */
+export function pickCustomQuestions(questions, difficulty, count) {
+  const list = difficulty === ALL_QUESTIONS ? questions : pickByDifficulty(questions, difficulty, count);
+  return list.map((q) => toRoomQuestion(q));
 }

@@ -2,3 +2,5 @@ node_modules
 dist
 .env.production
 CLAUDE.md
+AGENTS.md
+video
