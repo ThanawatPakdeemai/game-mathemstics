@@ -7,6 +7,7 @@ import {
   TIME_OPTIONS,
 } from "../../shared/constants.js";
 import { Brand } from "../components/ui.jsx";
+import { CreateComingSoonDialog, ImportDialog } from "./QuestionSetDialogs.jsx";
 
 function Step({ n, title, done, aside, children }) {
   return (
@@ -31,6 +32,9 @@ export default function SetupScreen({ onCreate }) {
   const [timePerQuestion, setTime] = useState(null);
   const [revealMode, setRevealMode] = useState(null);
   const [busy, setBusy] = useState(false);
+  // ชุดโจทย์ที่ครูนำเข้าเอง (ใช้ชั่วคราวเฉพาะห้องนี้)
+  const [customSet, setCustomSet] = useState(null);
+  const [dialog, setDialog] = useState(null); // 'import' | 'create' | null
 
   const gradeInfo = findGrade(grade);
   const tier = EDUCATION_TIERS.find((t) => t.id === tierId);
@@ -91,210 +95,254 @@ export default function SetupScreen({ onCreate }) {
   };
 
   return (
-    <form className="setup page" onSubmit={submit}>
-      <header className="setup-hero">
-        <Brand />
-        <div>
-          <h1>ตั้งค่าห้องเกม</h1>
-          <p>เลือกให้ครบทุกขั้นตอน แล้วให้นักเรียนสแกน QR-Code เข้าร่วม</p>
-        </div>
-        <div className="hero-art" aria-hidden="true">
-          <span>∀</span>
-          <span>∩</span>
-          <span>θ</span>
-          <span>Σ</span>
-        </div>
-      </header>
-
-      <div className="setup-grid">
-        <Step
-          n={1}
-          title="เลือกระดับชั้น"
-          done={grade && className.trim()}
-          aside={gradeSummary}
-        >
-          <div className="tier-tabs" role="group" aria-label="ระดับการศึกษา">
-            {EDUCATION_TIERS.map((t) => (
-              <button
-                type="button"
-                key={t.id}
-                aria-pressed={tierId === t.id}
-                className={`tier-tab ${tierId === t.id ? "is-active" : ""}`}
-                onClick={() => chooseTier(t)}
-              >
-                {t.label}
-              </button>
-            ))}
+    <>
+      <form className="setup page" onSubmit={submit}>
+        <header className="setup-hero">
+          <Brand />
+          <div>
+            <h1>ตั้งค่าห้องเกม</h1>
+            <p>เลือกให้ครบทุกขั้นตอน แล้วให้นักเรียนสแกน QR-Code เข้าร่วม</p>
           </div>
-
-          <p className="sub-label">ระดับย่อย</p>
-          <div className="level-grid">
-            {tier.groups.map((grp, i) => (
-              <button
-                type="button"
-                key={grp.id}
-                aria-pressed={groupId === grp.id}
-                className={`level-card ${groupId === grp.id ? "is-active" : ""}`}
-                onClick={() => chooseGroup(grp)}
-              >
-                <span
-                  className={`level-glyph glyph-${i % 5}`}
-                  aria-hidden="true"
-                >
-                  {grp.glyph}
+          <div className="hero-actions">
+            {customSet ? (
+              <div className="custom-chip">
+                <span className="custom-chip-text">
+                  <strong>
+                    {customSet.title} · {customSet.questions.length} ข้อ
+                  </strong>
+                  <small>ชั่วคราว · หายเมื่อจบเกม</small>
                 </span>
-                <span className="level-text">
-                  <b>{grp.label}</b>
-                  <small>{grp.range}</small>
-                </span>
-              </button>
-            ))}
-          </div>
-
-          <div className="sub-label-row">
-            <p className="sub-label">
-              ชั้นปี{group ? ` · ${group.label}` : ""}
-            </p>
-            <span className="ready-legend">
-              <span className="ready-dot" aria-hidden="true" />
-              มีคลังโจทย์แล้ว
-            </span>
-          </div>
-          {!group ? (
-            <p className="muted">เลือกระดับย่อยก่อน เพื่อแสดงชั้นปี</p>
-          ) : (
-            <div className="pill-row">
-              {group.grades.map((g) => (
                 <button
                   type="button"
-                  key={g.id}
-                  aria-pressed={grade === g.id}
-                  className={`pill pill-grade ${grade === g.id ? "is-active" : ""}`}
-                  onClick={() => chooseGrade(g)}
-                  title={
-                    g.topics.length ? `${g.title} (มีคลังโจทย์แล้ว)` : g.title
-                  }
+                  className="chip-btn"
+                  onClick={() => setDialog("import")}
                 >
-                  {g.label}
-                  {g.topics.length > 0 && (
-                    <span
-                      className="ready-dot ready-dot-pill"
-                      aria-hidden="true"
-                    />
-                  )}
+                  เปลี่ยนไฟล์
                 </button>
-              ))}
-            </div>
-          )}
+                <button
+                  type="button"
+                  className="chip-btn chip-remove"
+                  aria-label="เอาชุดโจทย์ของฉันออก"
+                  onClick={() => setCustomSet(null)}
+                >
+                  ✕
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => setDialog("import")}
+              >
+                <span aria-hidden="true">⇩</span> นำเข้าโจทย์ (.json)
+              </button>
+            )}
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setDialog("create")}
+            >
+              <span aria-hidden="true">＋</span> สร้างโจทย์ของฉัน
+            </button>
+          </div>
+        </header>
 
-          <label className="field">
-            <span>ชื่อห้อง</span>
-            <input
-              value={className}
-              onChange={(e) => setClassName(e.target.value)}
-              placeholder={group?.roomHint || "เช่น ม.6/9"}
-              maxLength={30}
-            />
-          </label>
-        </Step>
-
-        <Step n={2} title="เลือกหมวดหมู่การเรียนการสอน" done={Boolean(topic)}>
-          {!gradeInfo ? (
-            <p className="muted">เลือกระดับชั้นก่อน เพื่อแสดงหมวดหมู่</p>
-          ) : gradeInfo.topics.length === 0 ? (
-            <p className="muted">
-              ยังไม่มีคลังโจทย์สำหรับ {gradeInfo.title} — ตอนนี้มีโจทย์สำหรับ
-              ม.4–ม.6
-            </p>
-          ) : (
-            <div className="topic-row">
-              {gradeInfo.topics.map((t) => (
+        <div className="setup-grid">
+          <Step
+            n={1}
+            title="เลือกระดับชั้น"
+            done={grade && className.trim()}
+            aside={gradeSummary}
+          >
+            <div className="tier-tabs" role="group" aria-label="ระดับการศึกษา">
+              {EDUCATION_TIERS.map((t) => (
                 <button
                   type="button"
                   key={t.id}
-                  className={`topic-card ${topic === t.id ? "is-active" : ""}`}
-                  onClick={() => setTopic(t.id)}
+                  aria-pressed={tierId === t.id}
+                  className={`tier-tab ${tierId === t.id ? "is-active" : ""}`}
+                  onClick={() => chooseTier(t)}
                 >
-                  <span className="topic-icon">{t.icon}</span>
-                  <span>{t.label}</span>
+                  {t.label}
                 </button>
               ))}
             </div>
-          )}
-        </Step>
 
-        <Step n={3} title="ระดับความยาก" done={Boolean(difficulty)}>
-          <div className="pill-row">
-            {DIFFICULTIES.map((d) => (
-              <button
-                type="button"
-                key={d.id}
-                className={`pill pill-diff pill-${d.id} ${difficulty === d.id ? "is-active" : ""}`}
-                onClick={() => setDifficulty(d.id)}
-              >
-                {d.label}
-                <small>{d.count} ข้อ</small>
-              </button>
-            ))}
-          </div>
-        </Step>
+            <p className="sub-label">ระดับย่อย</p>
+            <div className="level-grid">
+              {tier.groups.map((grp, i) => (
+                <button
+                  type="button"
+                  key={grp.id}
+                  aria-pressed={groupId === grp.id}
+                  className={`level-card ${groupId === grp.id ? "is-active" : ""}`}
+                  onClick={() => chooseGroup(grp)}
+                >
+                  <span
+                    className={`level-glyph glyph-${i % 5}`}
+                    aria-hidden="true"
+                  >
+                    {grp.glyph}
+                  </span>
+                  <span className="level-text">
+                    <b>{grp.label}</b>
+                    <small>{grp.range}</small>
+                  </span>
+                </button>
+              ))}
+            </div>
 
-        <Step n={4} title="เวลาแต่ละข้อ" done={Boolean(timePerQuestion)}>
-          <div className="pill-row">
-            {TIME_OPTIONS.map((t) => (
-              <button
-                type="button"
-                key={t.seconds}
-                className={`pill ${timePerQuestion === t.seconds ? "is-active" : ""}`}
-                onClick={() => setTime(t.seconds)}
-              >
-                ⏱ {t.label}
-              </button>
-            ))}
-          </div>
-        </Step>
+            <div className="sub-label-row">
+              <p className="sub-label">ชั้นปี{group ? ` · ${group.label}` : ""}</p>
+              <span className="ready-legend">
+                <span className="ready-dot" aria-hidden="true" />
+                มีคลังโจทย์แล้ว
+              </span>
+            </div>
+            {!group ? (
+              <p className="muted">เลือกระดับย่อยก่อน เพื่อแสดงชั้นปี</p>
+            ) : (
+              <div className="pill-row">
+                {group.grades.map((g) => (
+                  <button
+                    type="button"
+                    key={g.id}
+                    aria-pressed={grade === g.id}
+                    className={`pill pill-grade ${grade === g.id ? "is-active" : ""}`}
+                    onClick={() => chooseGrade(g)}
+                    title={
+                      g.topics.length ? `${g.title} (มีคลังโจทย์แล้ว)` : g.title
+                    }
+                  >
+                    {g.label}
+                    {g.topics.length > 0 && (
+                      <span
+                        className="ready-dot ready-dot-pill"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
 
-        <Step n={5} title="รูปแบบการเฉลย" done={Boolean(revealMode)}>
-          <div className="radio-col" role="radiogroup">
-            {REVEAL_MODES.map((m) => (
-              <label
-                key={m.id}
-                className={`radio-card ${revealMode === m.id ? "is-active" : ""}`}
-              >
-                <input
-                  type="radio"
-                  name="revealMode"
-                  value={m.id}
-                  checked={revealMode === m.id}
-                  onChange={() => setRevealMode(m.id)}
-                />
-                <span className="radio-dot" />
-                <span>
-                  <b>{m.label}</b>
-                  <small>
-                    {m.id === "each"
-                      ? "เฉลยหลังจบแต่ละข้อ นับถอยหลัง 10 วินาทีก่อนข้อถัดไป"
-                      : "ไม่เฉลยระหว่างเกม แสดงเฉลยทั้งหมดหลังจบทุกข้อ"}
-                  </small>
-                </span>
-              </label>
-            ))}
-          </div>
-        </Step>
-      </div>
+            <label className="field">
+              <span>ชื่อห้อง</span>
+              <input
+                value={className}
+                onChange={(e) => setClassName(e.target.value)}
+                placeholder={group?.roomHint || "เช่น ม.6/9"}
+                maxLength={30}
+              />
+            </label>
+          </Step>
 
-      <footer className="setup-footer">
-        {!ready && (
-          <p className="muted">ยังไม่ได้เลือก: {missing.join(", ")}</p>
-        )}
-        <button
-          type="submit"
-          className="btn btn-cta btn-xl"
-          disabled={!ready || busy}
-        >
-          🎮 สร้างห้องเกม
-        </button>
-      </footer>
-    </form>
+          <Step n={2} title="เลือกหมวดหมู่การเรียนการสอน" done={Boolean(topic)}>
+            {!gradeInfo ? (
+              <p className="muted">เลือกระดับชั้นก่อน เพื่อแสดงหมวดหมู่</p>
+            ) : gradeInfo.topics.length === 0 ? (
+              <p className="muted">
+                ยังไม่มีคลังโจทย์สำหรับ {gradeInfo.title} — ตอนนี้มีโจทย์สำหรับ ม.4–ม.6
+              </p>
+            ) : (
+              <div className="topic-row">
+                {gradeInfo.topics.map((t) => (
+                  <button
+                    type="button"
+                    key={t.id}
+                    className={`topic-card ${topic === t.id ? "is-active" : ""}`}
+                    onClick={() => setTopic(t.id)}
+                  >
+                    <span className="topic-icon">{t.icon}</span>
+                    <span>{t.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </Step>
+
+          <Step n={3} title="ระดับความยาก" done={Boolean(difficulty)}>
+            <div className="pill-row">
+              {DIFFICULTIES.map((d) => (
+                <button
+                  type="button"
+                  key={d.id}
+                  className={`pill pill-diff pill-${d.id} ${difficulty === d.id ? "is-active" : ""}`}
+                  onClick={() => setDifficulty(d.id)}
+                >
+                  {d.label}
+                  <small>{d.count} ข้อ</small>
+                </button>
+              ))}
+            </div>
+          </Step>
+
+          <Step n={4} title="เวลาแต่ละข้อ" done={Boolean(timePerQuestion)}>
+            <div className="pill-row">
+              {TIME_OPTIONS.map((t) => (
+                <button
+                  type="button"
+                  key={t.seconds}
+                  className={`pill ${timePerQuestion === t.seconds ? "is-active" : ""}`}
+                  onClick={() => setTime(t.seconds)}
+                >
+                  ⏱ {t.label}
+                </button>
+              ))}
+            </div>
+          </Step>
+
+          <Step n={5} title="รูปแบบการเฉลย" done={Boolean(revealMode)}>
+            <div className="radio-col" role="radiogroup">
+              {REVEAL_MODES.map((m) => (
+                <label
+                  key={m.id}
+                  className={`radio-card ${revealMode === m.id ? "is-active" : ""}`}
+                >
+                  <input
+                    type="radio"
+                    name="revealMode"
+                    value={m.id}
+                    checked={revealMode === m.id}
+                    onChange={() => setRevealMode(m.id)}
+                  />
+                  <span className="radio-dot" />
+                  <span>
+                    <b>{m.label}</b>
+                    <small>
+                      {m.id === "each"
+                        ? "เฉลยหลังจบแต่ละข้อ นับถอยหลัง 10 วินาทีก่อนข้อถัดไป"
+                        : "ไม่เฉลยระหว่างเกม แสดงเฉลยทั้งหมดหลังจบทุกข้อ"}
+                    </small>
+                  </span>
+                </label>
+              ))}
+            </div>
+          </Step>
+        </div>
+
+        <footer className="setup-footer">
+          {!ready && <p className="muted">ยังไม่ได้เลือก: {missing.join(", ")}</p>}
+          <button
+            type="submit"
+            className="btn btn-cta btn-xl"
+            disabled={!ready || busy}
+          >
+            🎮 สร้างห้องเกม
+          </button>
+        </footer>
+      </form>
+
+      <ImportDialog
+        open={dialog === "import"}
+        onClose={() => setDialog(null)}
+        onImport={setCustomSet}
+      />
+      <CreateComingSoonDialog
+        open={dialog === "create"}
+        onClose={() => setDialog(null)}
+        onOpenImport={() => setDialog("import")}
+      />
+    </>
   );
 }
