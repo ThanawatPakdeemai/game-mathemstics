@@ -24,11 +24,6 @@ export const EDUCATION_TIERS = [
     id: 'basic',
     label: 'การศึกษาขั้นพื้นฐาน',
     groups: [
-      {
-        id: 'early', label: 'ปฐมวัย', range: 'ศพด. · อนุบาล 1–3', glyph: '★', roomHint: 'เช่น อ.2/1',
-        grades: [g('cdc', 'ศพด.', 'ศูนย์พัฒนาเด็กเล็ก'), ...years('k', 'อ.', 3)],
-      },
-      { id: 'primary', label: 'ประถมศึกษา', range: 'ป.1–6', glyph: '+', roomHint: 'เช่น ป.5/2', grades: years('p', 'ป.', 6) },
       { id: 'lower', label: 'ม.ต้น', range: 'ม.1–3', glyph: 'x', roomHint: 'เช่น ม.2/4', grades: years('m', 'ม.', 3) },
       { id: 'upper', label: 'ม.ปลาย', range: 'ม.4–6 สายสามัญ', glyph: 'θ', roomHint: 'เช่น ม.6/9', grades: years('m', 'ม.', 3, 'ม.', 4) },
       { id: 'voc', label: 'ปวช.', range: 'ม.ปลาย สายอาชีพ', glyph: 'π', roomHint: 'เช่น ปวช.2/1', grades: years('v', 'ปวช.', 3) },

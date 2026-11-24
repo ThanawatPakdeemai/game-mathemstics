@@ -20,7 +20,7 @@ export function validateQuestionSet(data, { custom = false } = {}) {
 
   const topic = custom ? CUSTOM_TOPIC : data.topic;
   if (custom) {
-    if (!findGrade(data.grade)) errors.push(`ไม่รู้จักระดับชั้น "${data.grade ?? ''}" (เช่น m3, m4, p6)`);
+    if (!findGrade(data.grade)) errors.push(`ไม่รู้จักระดับชั้น "${data.grade ?? ''}" (เช่น m3, m4, v1)`);
   } else if (!findTopic(data.grade, data.topic)) {
     errors.push(`ไม่รู้จัก grade/topic: ${data.grade}/${data.topic}`);
   }
