@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { socket, emitAsync } from '../lib/socket.js';
 import { withOffset } from '../lib/time.js';
-import { ConnectionBanner, MathBackdrop, Toast } from '../components/ui.jsx';
+import { Backdrop, ConnectionBanner, SubjectMascots, Toast } from '../components/ui.jsx';
 import SetupScreen from './SetupScreen.jsx';
 import LobbyScreen from './LobbyScreen.jsx';
 import { CountdownScreen, QuestionScreen, RevealScreen } from './GameScreens.jsx';
@@ -78,6 +78,8 @@ export default function HostApp() {
   };
 
   const view = state?.view;
+  // หน้าตั้งค่าห้อง (ยังไม่มีห้อง) แสดงตัวละครประจำวิชารอบขอบจอ ส่วนหน้าระหว่างเกมไม่แสดง เพื่อไม่ให้รกบนโปรเจคเตอร์
+  const onSetup = !resuming && (!view || view.status === 'closed');
   let screen;
   if (resuming) screen = <div className="center-screen loading">กำลังโหลด…</div>;
   else if (!view || view.status === 'closed') screen = <SetupScreen onCreate={createRoom} />;
@@ -106,7 +108,8 @@ export default function HostApp() {
 
   return (
     <div className="app host">
-      <MathBackdrop />
+      <Backdrop />
+      {onSetup && <SubjectMascots />}
       <ConnectionBanner />
       {screen}
       <Toast message={toast} />

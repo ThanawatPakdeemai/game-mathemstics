@@ -8,6 +8,7 @@ export default function PlayerLobby({ view, offset, notify }) {
   const me = view.me;
   const [name, setName] = useState(me.name || '');
   const [index, setIndex] = useState(me.characterId ?? 0);
+  const [showGrid, setShowGrid] = useState(false);
   const trackRef = useRef(null);
   const nameTimer = useRef(null);
   const left = untilMs(view.lobbyEndsAt, offset, now);
@@ -102,7 +103,7 @@ export default function PlayerLobby({ view, offset, notify }) {
                 className={`carousel-card ${c.id === index ? 'is-current' : ''} ${taken ? 'is-taken' : ''} ${mine ? 'is-mine' : ''}`}
                 onClick={() => scrollTo(c.id)}
               >
-                <img src={c.url} alt={c.name} draggable={false} />
+                <img src={c.url} alt={c.name} draggable={false} loading="lazy" decoding="async" />
                 {taken && <span className="taken-tag">🔒 {ownerName(c.id)}</span>}
                 {mine && <span className="mine-tag">✓ ของฉัน</span>}
               </button>
@@ -119,14 +120,37 @@ export default function PlayerLobby({ view, offset, notify }) {
           {index + 1}/{CHARACTERS.length}
         </small>
       </div>
-      <div className="carousel-dots">
-        {CHARACTERS.map((c) => (
-          <span
-            key={c.id}
-            className={`${c.id === index ? 'is-now' : ''} ${owner(c.id) ? (owner(c.id) === me.id ? 'is-mine' : 'is-taken') : ''}`}
-          />
-        ))}
+      <div className="char-stats">
+        <span>
+          ว่าง <b>{CHARACTERS.length - Object.keys(view.takenCharacters).length}</b>/{CHARACTERS.length} ตัว
+        </span>
+        <button type="button" className="link-btn" aria-expanded={showGrid} onClick={() => setShowGrid((v) => !v)}>
+          {showGrid ? 'ปิดตาราง' : 'ดูตัวละครทั้งหมด'}
+        </button>
       </div>
+      {showGrid && (
+        <div className="char-grid">
+          {CHARACTERS.map((c) => {
+            const taken = owner(c.id) && owner(c.id) !== me.id;
+            const mine = me.characterId === c.id;
+            return (
+              <button
+                type="button"
+                key={c.id}
+                className={`char-cell ${c.id === index ? 'is-now' : ''} ${taken ? 'is-taken' : ''} ${mine ? 'is-mine' : ''}`}
+                aria-label={`${c.name}${taken ? ' (มีคนเลือกแล้ว)' : ''}`}
+                onClick={() => {
+                  setShowGrid(false);
+                  scrollTo(c.id);
+                }}
+              >
+                <img src={c.url} alt="" draggable={false} loading="lazy" decoding="async" />
+                {taken && <span className="char-lock">🔒</span>}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       <button
         className={`btn btn-block ${isMine ? 'btn-ghost' : 'btn-cta'}`}

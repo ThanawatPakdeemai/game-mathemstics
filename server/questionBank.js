@@ -20,7 +20,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DIFFICULTY_ORDER, validateQuestionSet } from '../shared/questionSet.js';
+import { ALL_QUESTIONS, DIFFICULTY_ORDER, validateQuestionSet } from '../shared/questionSet.js';
 
 export { validateQuestionSet };
 
@@ -89,37 +89,46 @@ function shuffle(arr) {
   return a;
 }
 
-/**
- * สุ่มโจทย์ตามระดับความยาก: เลือกจากระดับที่ตรงก่อน แล้วค่อยเติมจากระดับใกล้เคียง
- * และสลับลำดับตัวเลือก ก ข ค ง ให้ทุกครั้ง
- */
-export function pickQuestions(grade, topic, difficulty, count) {
-  const pool = [...(bank.get(keyOf(grade, topic))?.values() || [])];
-  const preference = {
-    easy: ['easy', 'medium', 'hard', 'veryhard'],
-    medium: ['medium', 'easy', 'hard', 'veryhard'],
-    hard: ['hard', 'veryhard', 'medium', 'easy'],
-    veryhard: ['veryhard', 'hard', 'medium', 'easy'],
-  }[difficulty] || DIFFICULTY_ORDER;
+const PREFERENCE = {
+  easy: ['easy', 'medium', 'hard', 'veryhard'],
+  medium: ['medium', 'easy', 'hard', 'veryhard'],
+  hard: ['hard', 'veryhard', 'medium', 'easy'],
+  veryhard: ['veryhard', 'hard', 'medium', 'easy'],
+};
 
+/** เลือกโจทย์จากระดับที่ตรงก่อน แล้วค่อยเติมจากระดับใกล้เคียง เรียงจากง่ายไปยาก */
+function pickByDifficulty(pool, difficulty, count) {
   const picked = [];
-  for (const level of preference) {
+  for (const level of PREFERENCE[difficulty] || DIFFICULTY_ORDER) {
     for (const q of shuffle(pool.filter((p) => p.difficulty === level))) {
       if (picked.length >= count) break;
       picked.push(q);
     }
   }
-  picked.sort((a, b) => DIFFICULTY_ORDER.indexOf(a.difficulty) - DIFFICULTY_ORDER.indexOf(b.difficulty));
+  return picked.sort((a, b) => DIFFICULTY_ORDER.indexOf(a.difficulty) - DIFFICULTY_ORDER.indexOf(b.difficulty));
+}
 
-  return picked.map((q) => {
-    const order = shuffle([0, 1, 2, 3]);
-    return {
-      id: q.id,
-      difficulty: q.difficulty,
-      question: q.question,
-      choices: order.map((i) => q.choices[i]),
-      answer: order.indexOf(q.answer),
-      explanation: q.explanation,
-    };
-  });
+const toRoomQuestion = (q, order = [0, 1, 2, 3]) => ({
+  id: q.id,
+  difficulty: q.difficulty,
+  question: q.question,
+  choices: order.map((i) => q.choices[i]),
+  answer: order.indexOf(q.answer),
+  explanation: q.explanation,
+});
+
+/** สุ่มโจทย์จากคลังในระบบ และสลับลำดับตัวเลือก ก ข ค ง ให้ทุกครั้ง */
+export function pickQuestions(grade, topic, difficulty, count) {
+  const pool = [...(bank.get(keyOf(grade, topic))?.values() || [])];
+  return pickByDifficulty(pool, difficulty, count).map((q) => toRoomQuestion(q, shuffle([0, 1, 2, 3])));
+}
+
+/**
+ * เลือกโจทย์จากชุดที่ครูนำเข้า (ใช้เฉพาะห้องนั้น ไม่เข้าคลัง)
+ * - difficulty = "all": ใช้ทุกข้อตามลำดับในไฟล์
+ * - ไม่สลับตัวเลือก เพราะครูอาจเขียนตัวเลือกแบบ "ถูกทั้งข้อ ก และ ข"
+ */
+export function pickCustomQuestions(questions, difficulty, count) {
+  const list = difficulty === ALL_QUESTIONS ? questions : pickByDifficulty(questions, difficulty, count);
+  return list.map((q) => toRoomQuestion(q));
 }

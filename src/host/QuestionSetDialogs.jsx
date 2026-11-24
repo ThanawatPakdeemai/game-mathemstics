@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { DIFFICULTIES, gradeTitle } from "../../shared/constants.js";
+import {
+  DIFFICULTIES,
+  findSubject,
+  gradeTitle,
+} from "../../shared/constants.js";
 import {
   countByDifficulty,
   MAX_IMPORT_BYTES,
@@ -21,7 +25,7 @@ export function downloadJson(data, filename) {
 }
 
 const downloadTemplate = () =>
-  downloadJson(QUESTION_SET_TEMPLATE, "mathmotion-ตัวอย่างโจทย์.json");
+  downloadJson(QUESTION_SET_TEMPLATE, "quizmotion-ตัวอย่างโจทย์.json");
 
 /** กล่องโต้ตอบแบบ <dialog> (กด Esc หรือคลิกพื้นหลังเพื่อปิด) */
 function Modal({ open, onClose, title, children, className = "" }) {
@@ -140,7 +144,10 @@ export function ImportDialog({ open, onClose, onImport }) {
             <span className="muted small">ไฟล์เดียว · ขนาดไม่เกิน 1 MB</span>
           </label>
           <div className="info-row">
-            <span>ยังไม่มีไฟล์? ดาวน์โหลดไฟล์ตัวอย่าง แล้วแก้ไขโจทย์ในไฟล์ได้เลย</span>
+            <span>
+              ยังไม่มีไฟล์? ดาวน์โหลดไฟล์ตัวอย่าง แล้วแก้โจทย์ในไฟล์ได้เลย ใช้ได้ทุกวิชา (ไทย คณิต
+              อังกฤษ วิทย์ ประวัติศาสตร์ วรรณกรรม)
+            </span>
             <button
               type="button"
               className="link-btn"
@@ -181,9 +188,14 @@ export function ImportDialog({ open, onClose, onImport }) {
             <div>
               <h3>{result.set.title}</h3>
               <p className="muted small">
-                {gradeTitle(result.set.grade)} · {result.set.questions.length}{" "}
-                ข้อ
-                {result.set.author && ` · โดย ${result.set.author}`}
+                {[
+                  findSubject(result.set.subject)?.label,
+                  result.set.grade && gradeTitle(result.set.grade),
+                  `${result.set.questions.length} ข้อ`,
+                  result.set.author && `โดย ${result.set.author}`,
+                ]
+                  .filter(Boolean)
+                  .join(" · ")}
               </p>
             </div>
             <div className="diff-counts">

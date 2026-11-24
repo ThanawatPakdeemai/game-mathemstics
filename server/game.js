@@ -8,15 +8,23 @@ import {
   SCORE,
   START_COUNTDOWN_MS,
   findDifficulty,
+  findGrade,
+  findSubject,
   findTopic,
   speedPoints,
 } from '../shared/constants.js';
-import { pickQuestions } from './questionBank.js';
+import { ALL_QUESTIONS, CUSTOM_TOPIC, validateQuestionSet } from '../shared/questionSet.js';
+import { pickCustomQuestions, pickQuestions } from './questionBank.js';
 
+// ชื่อสุ่มสำหรับคนที่ไม่ได้ตั้งชื่อ (มีมากกว่าจำนวนผู้เล่นสูงสุด)
 const RANDOM_NAMES = [
-  'ทีมสายฟ้า', 'ทีมจรวด', 'ทีมดาวเหนือ', 'ทีมเสือดาว', 'ทีมพายุ',
-  'ทีมอินฟินิตี้', 'ทีมพาย π', 'ทีมซิกม่า Σ', 'ทีมเวกเตอร์', 'ทีมเลขยกกำลัง',
-  'ทีมนกฮูก', 'ทีมมังกร', 'ทีมเทอร์โบ', 'ทีมกาแล็กซี', 'ทีมเรขาคณิต',
+  'ทีมสายฟ้า', 'ทีมจรวด', 'ทีมดาวเหนือ', 'ทีมเสือดาว', 'ทีมพายุ', 'ทีมอินฟินิตี้', 'ทีมนกฮูก', 'ทีมมังกร',
+  'ทีมเทอร์โบ', 'ทีมกาแล็กซี', 'ทีมดาวหาง', 'ทีมอุกกาบาต', 'ทีมเหยี่ยว', 'ทีมโลมา', 'ทีมแพนด้า', 'ทีมช้างน้อย',
+  'ทีมกระต่าย', 'ทีมนกยูง', 'ทีมสิงโต', 'ทีมหมีขาว', 'ทีมเพนกวิน', 'ทีมฉลาม', 'ทีมจิงโจ้', 'ทีมยีราฟ',
+  'ทีมผึ้งงาน', 'ทีมผีเสื้อ', 'ทีมหิ่งห้อย', 'ทีมดอกบัว', 'ทีมทานตะวัน', 'ทีมต้นกล้า', 'ทีมภูเขาไฟ', 'ทีมคลื่นลม',
+  'ทีมสายรุ้ง', 'ทีมพระจันทร์', 'ทีมดวงอาทิตย์', 'ทีมเมฆขาว', 'ทีมหิมะ', 'ทีมเพชร', 'ทีมมรกต', 'ทีมทับทิม',
+  'ทีมไพลิน', 'ทีมนักบิน', 'ทีมนักสำรวจ', 'ทีมนักประดิษฐ์', 'ทีมนักอ่าน', 'ทีมนักกวี', 'ทีมนักคิด', 'ทีมอัจฉริยะ',
+  'ทีมสปีดสตาร์', 'ทีมไฟแรง', 'ทีมกล้าหาญ', 'ทีมยิ้มสู้', 'ทีมพลังบวก', 'ทีมเต็มร้อย', 'ทีมแชมป์', 'ทีมดาวรุ่ง',
 ];
 
 const token = () => crypto.randomBytes(16).toString('hex');
@@ -94,7 +102,7 @@ class PausableTimer {
 }
 
 export class Room {
-  constructor(settings, { onChange, generateCode }) {
+  constructor(settings, { onChange, generateCode, customQuestions = null }) {
     this.id = crypto.randomUUID();
     this.hostToken = token();
     this.settings = settings;
@@ -107,7 +115,11 @@ export class Room {
 
     /** @type {Map<string, {id,token,name,characterId,connected,joinedAt,autoName,autoCharacter}>} */
     this.players = new Map();
-    this.questions = pickQuestions(settings.grade, settings.topic, settings.difficulty, findDifficulty(settings.difficulty).count);
+    const count = findDifficulty(settings.difficulty)?.count ?? 0;
+    // ชุดโจทย์ที่ครูนำเข้าอยู่ในห้องนี้เท่านั้น — ไม่เข้าคลัง และหายไปพร้อมห้องเมื่อปิดเกม
+    this.questions = customQuestions
+      ? pickCustomQuestions(customQuestions, settings.difficulty, count)
+      : pickQuestions(settings.grade, settings.topic, settings.difficulty, count);
     this.currentIndex = -1;
     /** answers[questionIndex] = Map(playerId -> {choice, correct, rank, elapsedMs}) */
     this.answers = this.questions.map(() => new Map());
@@ -226,7 +238,7 @@ export class Room {
     if (name && !p.name) {
       const used = new Set([...this.players.values()].map((x) => x.name));
       const free = RANDOM_NAMES.filter((n) => !used.has(n));
-      p.name = free.length ? pickRandom(free) : `ผู้เล่น ${this.players.size}`;
+      p.name = free.length ? pickRandom(free) : `ผู้เล่น ${this.players.size}`; // กันไว้กรณีชื่อสุ่มหมด
       p.autoName = true;
     }
   }
@@ -393,12 +405,16 @@ export class Room {
   }
 
   baseView() {
-    const topic = findTopic(this.settings.grade, this.settings.topic);
+    const s = this.settings;
     return {
       roomId: this.id,
       code: this.code,
       status: this.status,
-      settings: { ...this.settings, topicLabel: topic?.label },
+      settings: {
+        ...s,
+        topicLabel: s.topicLabel || findTopic(s.grade, s.topic)?.label || '',
+        subjectLabel: findSubject(s.subject)?.label || '',
+      },
       serverNow: Date.now(),
       lobbyEndsAt: this.lobbyEndsAt,
       qrExpired: this.qrExpired,
@@ -448,11 +464,15 @@ export class Room {
     return view;
   }
 
-  playerView(playerId) {
-    const view = this.baseView();
+  /**
+   * มุมมองของผู้เล่นแต่ละคน — shared คือแคชที่ใช้ร่วมกันในการ broadcast รอบเดียว
+   * (ห้อง 50 คน จะไม่ต้องคำนวณรายชื่อ/ผลคะแนนซ้ำ 50 รอบ)
+   */
+  playerView(playerId, shared = {}) {
+    const view = { ...(shared.base ??= this.baseView()) };
     const me = this.players.get(playerId);
     view.me = me ? { id: me.id, name: me.name, characterId: me.characterId, autoName: me.autoName, autoCharacter: me.autoCharacter } : null;
-    view.takenCharacters = this.takenCharacters();
+    view.takenCharacters = shared.taken ??= this.takenCharacters();
     if (this.currentIndex >= 0 && this.status !== STATUS.FINISHED) {
       const showAnswer = this.status === STATUS.REVEAL;
       view.question = this.questionPayload(this.currentIndex, showAnswer);
@@ -461,10 +481,10 @@ export class Room {
       if (showAnswer) view.myScore = this.scoreFor(playerId, this.currentIndex);
     }
     if (this.status === STATUS.FINISHED) {
-      const { rows } = this.results();
+      const { rows } = (shared.results ??= this.results());
       view.final = {
         me: rows.find((r) => r.id === playerId) || null,
-        podium: rows.slice(0, 3).map(({ id, name, characterId, total, rank }) => ({ id, name, characterId, total, rank })),
+        podium: (shared.podium ??= rows.slice(0, 3).map(({ id, name, characterId, total, rank }) => ({ id, name, characterId, total, rank }))),
         totalPlayers: rows.length,
       };
     }
@@ -472,13 +492,30 @@ export class Room {
   }
 }
 
+/**
+ * ตรวจค่าที่ครูส่งมาตอนสร้างห้อง
+ * คืนค่า { settings, customQuestions } หรือ { errors }
+ */
 export function sanitizeSettings(raw) {
   const s = raw || {};
-  const topic = findTopic(s.grade, s.topic);
-  const difficulty = findDifficulty(s.difficulty);
+  const isCustom = s.topic === CUSTOM_TOPIC;
   const time = Number(s.timePerQuestion);
   const errors = [];
-  if (!topic) errors.push('กรุณาเลือกระดับชั้นและหมวดหมู่');
+  let custom = null;
+
+  const bankTopic = isCustom ? null : findTopic(s.grade, s.topic);
+  if (!findGrade(s.grade)) errors.push('กรุณาเลือกระดับชั้น');
+  if (!isCustom && !bankTopic) errors.push('กรุณาเลือกหมวดหมู่');
+  if (isCustom) {
+    const res = validateQuestionSet(s.customSet, { custom: true });
+    if (!res.ok) errors.push('ชุดโจทย์ที่นำเข้าไม่ถูกต้อง กรุณานำเข้าไฟล์ใหม่');
+    else custom = res.set;
+  }
+  const difficulty = isCustom && s.difficulty === ALL_QUESTIONS ? { id: ALL_QUESTIONS } : findDifficulty(s.difficulty);
+  const subject = isCustom
+    ? findSubject(s.subject) || findSubject(custom?.subject) || findSubject('other')
+    : findSubject(bankTopic?.subject);
+
   if (!String(s.className || '').trim()) errors.push('กรุณากรอกชื่อห้อง');
   if (!difficulty) errors.push('กรุณาเลือกระดับความยาก');
   if (![60, 180, 300, 600].includes(time)) errors.push('กรุณาเลือกเวลาแต่ละข้อ');
@@ -488,10 +525,13 @@ export function sanitizeSettings(raw) {
     settings: {
       grade: s.grade,
       className: String(s.className).trim().slice(0, 30),
+      subject: subject?.id || 'other',
       topic: s.topic,
+      ...(custom ? { topicLabel: custom.title, author: custom.author } : {}),
       difficulty: difficulty.id,
       timePerQuestion: time,
       revealMode: s.revealMode,
     },
+    customQuestions: custom?.questions || null,
   };
 }

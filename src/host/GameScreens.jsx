@@ -1,5 +1,5 @@
 import { CHOICE_LABELS } from '../../shared/constants.js';
-import { Avatar, DifficultyBadge, PausedOverlay, TimerBar } from '../components/ui.jsx';
+import { Avatar, crowd, DifficultyBadge, PausedOverlay, TimerBar } from '../components/ui.jsx';
 import { remainingMs, useNow } from '../lib/time.js';
 import { RoomHeader } from './LobbyScreen.jsx';
 
@@ -24,15 +24,16 @@ export function CountdownScreen({ view, offset, action }) {
   const now = useNow(100);
   const left = remainingMs(view.timer, offset, now);
   const n = Math.max(1, Math.ceil(left / 1000));
+  const dense = crowd(view.players.length, [96, 64, 48]);
 
   return (
     <div className="page countdown">
       <RoomHeader view={view} />
       <h1 className="countdown-title">ผู้เข้าแข่งขัน</h1>
-      <ul className="roster">
+      <ul className={`roster ${dense.cls}`}>
         {view.players.map((p, i) => (
-          <li key={p.id} className="roster-item pop-in" style={{ animationDelay: `${i * 60}ms` }}>
-            <Avatar characterId={p.characterId} size={96} />
+          <li key={p.id} className="roster-item pop-in" style={{ animationDelay: `${Math.min(i * 40, 1500)}ms` }}>
+            <Avatar characterId={p.characterId} size={dense.size} />
             <b>{p.name}</b>
           </li>
         ))}
@@ -91,6 +92,7 @@ export function QuestionScreen({ view, offset, action }) {
   const now = useNow(200);
   const left = remainingMs(view.timer, offset, now);
   const q = view.question;
+  const dense = crowd(view.players.length, [52, 44, 36]);
 
   return (
     <div className="page play">
@@ -103,10 +105,10 @@ export function QuestionScreen({ view, offset, action }) {
       </section>
       <ChoiceGrid question={q} />
 
-      <ul className="answer-strip">
+      <ul className={`answer-strip ${dense.cls}`}>
         {view.players.map((p) => (
           <li key={p.id} className={p.answered ? 'is-done' : ''} title={p.name}>
-            <Avatar characterId={p.characterId} size={52} />
+            <Avatar characterId={p.characterId} size={dense.size} />
             {p.answered && <span className="strip-check">✓</span>}
             <small>{p.name}</small>
           </li>
@@ -135,6 +137,7 @@ export function RevealScreen({ view, offset, action }) {
   const left = remainingMs(view.timer, offset, now);
   const q = view.question;
   const players = [...view.reveal.players].sort((a, b) => (a.rank ?? 99) - (b.rank ?? 99));
+  const dense = crowd(players.length, [44, 36, 30]);
 
   return (
     <div className="page play reveal">
@@ -148,10 +151,10 @@ export function RevealScreen({ view, offset, action }) {
       </section>
       <ChoiceGrid question={q} reveal={view.reveal} />
 
-      <ul className="reveal-list">
+      <ul className={`reveal-list ${dense.cls}`}>
         {players.map((p) => (
           <li key={p.id} className={!p.answered ? 'is-none' : p.correct ? 'is-correct' : 'is-wrong'}>
-            <Avatar characterId={p.characterId} size={44} />
+            <Avatar characterId={p.characterId} size={dense.size} />
             <b>{p.name}</b>
             <span className="reveal-answer">{p.answered ? CHOICE_LABELS[p.choice] : '—'}</span>
             <span className="reveal-points">
