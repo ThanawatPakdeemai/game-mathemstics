@@ -1,0 +1,112 @@
+{
+  "grade": "v3",
+  "topic": "interview",
+  "title": "Job Interview English",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "interview-001",
+      "difficulty": "easy",
+      "question": "\"Tell me about yourself.\" เป็นคำถามเพื่ออะไร",
+      "choices": [
+        "ถามเงินเดือน",
+        "ให้แนะนำตัว",
+        "ปิดการสัมภาษณ์",
+        "ถามที่อยู่"
+      ],
+      "answer": 1,
+      "explanation": "เป็นคำถามเปิดของการสัมภาษณ์"
+    },
+    {
+      "id": "interview-002",
+      "difficulty": "easy",
+      "question": "\"What are your strengths?\" ถามเกี่ยวกับสิ่งใด",
+      "choices": [
+        "จุดอ่อน",
+        "เงินเดือน",
+        "จุดแข็ง",
+        "เวลาเข้างาน"
+      ],
+      "answer": 2,
+      "explanation": "strength = จุดแข็ง"
+    },
+    {
+      "id": "interview-003",
+      "difficulty": "easy",
+      "question": "\"Thank you for your time.\" ใช้เมื่อใด",
+      "choices": [
+        "ตอนทักทาย",
+        "ตอนปฏิเสธ",
+        "ตอนขอโทษ",
+        "ตอนปิดการสนทนา"
+      ],
+      "answer": 3,
+      "explanation": "ขอบคุณที่สละเวลา"
+    },
+    {
+      "id": "interview-004",
+      "difficulty": "medium",
+      "question": "\"I have two years of experience.\" แปลว่าอะไร",
+      "choices": [
+        "ฉันมีประสบการณ์สองปี",
+        "ฉันอายุสองปี",
+        "ฉันไม่มีประสบการณ์",
+        "ฉันเรียนสองปี"
+      ],
+      "answer": 0,
+      "explanation": "experience = ประสบการณ์"
+    },
+    {
+      "id": "interview-005",
+      "difficulty": "medium",
+      "question": "\"Why do you want this job?\" ต้องการให้ตอบเรื่องใด",
+      "choices": [
+        "อายุ",
+        "เหตุผลที่สนใจงาน",
+        "ที่พัก",
+        "ชื่อ"
+      ],
+      "answer": 1,
+      "explanation": "why = ทำไม"
+    },
+    {
+      "id": "interview-006",
+      "difficulty": "medium",
+      "question": "ประโยคใดสุภาพที่สุด",
+      "choices": [
+        "I want job.",
+        "Give me job.",
+        "I would like to apply for this position.",
+        "Job me now."
+      ],
+      "answer": 2,
+      "explanation": "would like สุภาพกว่า want"
+    },
+    {
+      "id": "interview-007",
+      "difficulty": "hard",
+      "question": "\"I am a team player.\" หมายถึงอะไร",
+      "choices": [
+        "เล่นกีฬาเก่ง",
+        "ชอบอยู่คนเดียว",
+        "เป็นหัวหน้า",
+        "ทำงานร่วมกับผู้อื่นได้ดี"
+      ],
+      "answer": 3,
+      "explanation": "team player = คนทำงานเป็นทีม"
+    },
+    {
+      "id": "interview-008",
+      "difficulty": "hard",
+      "question": "\"I am proficient in Excel.\" หมายถึงอะไร",
+      "choices": [
+        "ชำนาญการใช้ Excel",
+        "กลัว Excel",
+        "ไม่รู้จัก Excel",
+        "เพิ่งเริ่มใช้ Excel"
+      ],
+      "answer": 0,
+      "explanation": "proficient = ชำนาญ"
+    }
+  ]
+}

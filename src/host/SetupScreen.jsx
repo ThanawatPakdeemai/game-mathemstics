@@ -265,11 +265,22 @@ export default function SetupScreen({ onCreate }) {
             </div>
 
             <div className="sub-label-row">
-              <p className="sub-label">ชั้นปี{group ? ` · ${group.label}` : ""}</p>
-              <span className="ready-legend">
-                <span className="ready-dot" aria-hidden="true" />
-                มีคลังโจทย์ในระบบ
-              </span>
+              <p className="sub-label">
+                ชั้นปี{group ? ` · ${group.label}` : ""}
+              </p>
+              {subject && grade && (
+                <span className="ready-legend">
+                  {bankTopics.length === 0 ? (
+                    <span className="not-ready-dot " aria-hidden="true" />
+                  ) : (
+                    <span className="ready-dot " aria-hidden="true" />
+                  )}
+                  {/* <span className="ready-dot" aria-hidden="true" /> */}
+                  {bankTopics.length === 0
+                    ? "ยังไม่มีคลังโจทย์ในระบบ"
+                    : "มีคลังโจทย์ในระบบ"}
+                </span>
+              )}
             </div>
             {!group ? (
               <p className="muted">เลือกระดับย่อยก่อน เพื่อแสดงชั้นปี</p>
@@ -375,7 +386,8 @@ export default function SetupScreen({ onCreate }) {
                 ) : bankTopics.length === 0 ? (
                   <div className="empty-bank">
                     <p>
-                      ยังไม่มีคลังโจทย์{subjectInfo.label}สำหรับ {gradeInfo.title}
+                      ยังไม่มีคลังโจทย์{subjectInfo.label}สำหรับ{" "}
+                      {gradeInfo.title}
                       <br />
                       <span className="muted small">
                         ใช้โจทย์ของคุณเองได้ เนื้อหาตรงกับที่สอนในห้อง
@@ -413,7 +425,9 @@ export default function SetupScreen({ onCreate }) {
               </>
             )}
             {!subject && (
-              <p className="muted sub-hint">เลือกวิชาที่สอน เพื่อแสดงชุดโจทย์</p>
+              <p className="muted sub-hint">
+                เลือกวิชาที่สอน เพื่อแสดงชุดโจทย์
+              </p>
             )}
           </Step>
 
@@ -447,7 +461,8 @@ export default function SetupScreen({ onCreate }) {
             </div>
             {isCustom && difficulty && difficulty !== ALL_QUESTIONS && (
               <p className="muted small step-note">
-                ถ้าระดับที่เลือกมีโจทย์ไม่พอ ระบบจะเติมจากระดับใกล้เคียงในไฟล์เดียวกัน
+                ถ้าระดับที่เลือกมีโจทย์ไม่พอ
+                ระบบจะเติมจากระดับใกล้เคียงในไฟล์เดียวกัน
               </p>
             )}
           </Step>
@@ -497,7 +512,9 @@ export default function SetupScreen({ onCreate }) {
         </div>
 
         <footer className="setup-footer">
-          {!ready && <p className="muted">ยังไม่ได้เลือก: {missing.join(", ")}</p>}
+          {!ready && (
+            <p className="muted">ยังไม่ได้เลือก: {missing.join(", ")}</p>
+          )}
           <button
             type="submit"
             className="btn btn-cta btn-xl"

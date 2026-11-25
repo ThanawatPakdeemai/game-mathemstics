@@ -1,0 +1,112 @@
+{
+  "grade": "hv1",
+  "topic": "technical",
+  "title": "Technical English",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "technical-001",
+      "difficulty": "easy",
+      "question": "\"machine\" แปลว่าอะไร",
+      "choices": [
+        "เครื่องจักร",
+        "วัสดุ",
+        "ไฟฟ้า",
+        "ช่าง"
+      ],
+      "answer": 0,
+      "explanation": "machine = เครื่องจักรหรือเครื่องกล"
+    },
+    {
+      "id": "technical-002",
+      "difficulty": "easy",
+      "question": "\"Safety first\" หมายถึงอะไร",
+      "choices": [
+        "ซื้อก่อน",
+        "ความปลอดภัยต้องมาก่อน",
+        "ทำให้เร็วที่สุด",
+        "ทดสอบก่อน"
+      ],
+      "answer": 1,
+      "explanation": "ป้ายเตือนในโรงงาน"
+    },
+    {
+      "id": "technical-003",
+      "difficulty": "easy",
+      "question": "\"tool\" แปลว่าอะไร",
+      "choices": [
+        "งาน",
+        "แรง",
+        "เครื่องมือ",
+        "ไฟ"
+      ],
+      "answer": 2,
+      "explanation": "tool = เครื่องมือ"
+    },
+    {
+      "id": "technical-004",
+      "difficulty": "medium",
+      "question": "\"Warning: High voltage\" หมายถึงอะไร",
+      "choices": [
+        "เตือน: ผิวร้อน",
+        "ปิดเครื่อง",
+        "ห้ามเข้า",
+        "เตือน: แรงดันไฟฟ้าสูง"
+      ],
+      "answer": 3,
+      "explanation": "voltage = แรงดันไฟฟ้า"
+    },
+    {
+      "id": "technical-005",
+      "difficulty": "medium",
+      "question": "\"Please wear a helmet.\" หมายถึงอะไร",
+      "choices": [
+        "กรุณาสวมหมวกนิรภัย",
+        "กรุณาถอดหมวก",
+        "กรุณาซื้อหมวก",
+        "กรุณาล้างหมวก"
+      ],
+      "answer": 0,
+      "explanation": "wear = สวม"
+    },
+    {
+      "id": "technical-006",
+      "difficulty": "medium",
+      "question": "\"maintenance\" แปลว่าอะไร",
+      "choices": [
+        "การผลิต",
+        "การบำรุงรักษา",
+        "การขาย",
+        "การตรวจเงิน"
+      ],
+      "answer": 1,
+      "explanation": "ใช้กับเครื่องจักร"
+    },
+    {
+      "id": "technical-007",
+      "difficulty": "hard",
+      "question": "\"The machine is out of order.\" หมายถึงอะไร",
+      "choices": [
+        "เครื่องใหม่",
+        "เครื่องเรียบร้อยดี",
+        "เครื่องเสีย",
+        "เครื่องกำลังทำความสะอาด"
+      ],
+      "answer": 2,
+      "explanation": "out of order = ใช้การไม่ได้"
+    },
+    {
+      "id": "technical-008",
+      "difficulty": "hard",
+      "question": "\"Follow the instructions carefully.\" หมายถึงอะไร",
+      "choices": [
+        "ข้ามคำแนะนำ",
+        "ถามผู้อื่นแทน",
+        "ส่งคืนคำแนะนำ",
+        "ทำตามคำแนะนำอย่างระมัดระวัง"
+      ],
+      "answer": 3,
+      "explanation": "carefully = ระมัดระวัง"
+    }
+  ]
+}

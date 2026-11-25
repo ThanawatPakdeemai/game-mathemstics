@@ -1,0 +1,112 @@
+{
+  "grade": "m1",
+  "topic": "present",
+  "title": "Present Simple & Continuous",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "present-001",
+      "difficulty": "easy",
+      "question": "She ___ to school every day.",
+      "choices": [
+        "goes",
+        "go",
+        "going",
+        "gone"
+      ],
+      "answer": 0,
+      "explanation": "ประธานเอกพจน์บุรุษที่ 3 ใช้ goes"
+    },
+    {
+      "id": "present-002",
+      "difficulty": "easy",
+      "question": "I ___ a student.",
+      "choices": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "answer": 1,
+      "explanation": "I ใช้คู่กับ am"
+    },
+    {
+      "id": "present-003",
+      "difficulty": "easy",
+      "question": "They ___ football now.",
+      "choices": [
+        "play",
+        "plays",
+        "are playing",
+        "played"
+      ],
+      "answer": 2,
+      "explanation": "now บอกว่ากำลังทำอยู่ ใช้ are + V-ing"
+    },
+    {
+      "id": "present-004",
+      "difficulty": "medium",
+      "question": "Which sentence is correct?",
+      "choices": [
+        "He don't like milk.",
+        "He doesn't likes milk.",
+        "He not like milk.",
+        "He doesn't like milk."
+      ],
+      "answer": 3,
+      "explanation": "doesn't ตามด้วยกริยาช่อง 1"
+    },
+    {
+      "id": "present-005",
+      "difficulty": "medium",
+      "question": "My father ___ TV at the moment.",
+      "choices": [
+        "is watching",
+        "watches",
+        "watch",
+        "watched"
+      ],
+      "answer": 0,
+      "explanation": "at the moment ใช้ is + V-ing"
+    },
+    {
+      "id": "present-006",
+      "difficulty": "medium",
+      "question": "\"Does she have a pen?\" ตอบว่าใช่ได้ข้อใด",
+      "choices": [
+        "Yes, she has.",
+        "Yes, she does.",
+        "Yes, she do.",
+        "Yes, she is."
+      ],
+      "answer": 1,
+      "explanation": "ตอบตามกริยาช่วยในคำถาม"
+    },
+    {
+      "id": "present-007",
+      "difficulty": "hard",
+      "question": "Tom and Anna ___ in the garden.",
+      "choices": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "answer": 2,
+      "explanation": "ประธานพหูพจน์ใช้ are"
+    },
+    {
+      "id": "present-008",
+      "difficulty": "hard",
+      "question": "Look! The baby ___.",
+      "choices": [
+        "cries",
+        "cry",
+        "cried",
+        "is crying"
+      ],
+      "answer": 3,
+      "explanation": "Look! บอกเหตุการณ์ที่กำลังเกิดขึ้น"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "grade": "v2",
+  "topic": "business",
+  "title": "Business Communication",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "business-001",
+      "difficulty": "easy",
+      "question": "\"Dear Sir or Madam\" ใช้ขึ้นต้นข้อความประเภทใด",
+      "choices": [
+        "ข้อความหาเพื่อน",
+        "ไลน์กลุ่ม",
+        "โปสเตอร์",
+        "จดหมายหรืออีเมลทางการ"
+      ],
+      "answer": 3,
+      "explanation": "ใช้เมื่อไม่ทราบชื่อผู้รับ"
+    },
+    {
+      "id": "business-002",
+      "difficulty": "easy",
+      "question": "\"Best regards\" ใช้ทำอะไร",
+      "choices": [
+        "ปิดท้ายจดหมาย",
+        "เริ่มต้นจดหมาย",
+        "ถามราคา",
+        "ขอโทษ"
+      ],
+      "answer": 0,
+      "explanation": "เป็นคำลงท้ายสุภาพ"
+    },
+    {
+      "id": "business-003",
+      "difficulty": "easy",
+      "question": "\"Please find attached\" แปลว่าอะไร",
+      "choices": [
+        "กรุณาลบ",
+        "ขอแนบมาด้วย",
+        "ขอเปลี่ยน",
+        "ขอยกเลิก"
+      ],
+      "answer": 1,
+      "explanation": "ใช้ในอีเมลที่แนบไฟล์"
+    },
+    {
+      "id": "business-004",
+      "difficulty": "medium",
+      "question": "\"Could you send me the report?\" หมายถึงอะไร",
+      "choices": [
+        "ปฏิเสธการส่ง",
+        "ขอบคุณ",
+        "ขอให้ส่งรายงานให้",
+        "ขอโทษ"
+      ],
+      "answer": 2,
+      "explanation": "เป็นการขออย่างสุภาพ"
+    },
+    {
+      "id": "business-005",
+      "difficulty": "medium",
+      "question": "\"I'm calling about my order.\" ใช้ในสถานการณ์ใด",
+      "choices": [
+        "สัมภาษณ์งาน",
+        "ประชุม",
+        "เขียนอีเมล",
+        "โทรศัพท์"
+      ],
+      "answer": 3,
+      "explanation": "calling = โทร"
+    },
+    {
+      "id": "business-006",
+      "difficulty": "medium",
+      "question": "\"Hold on, please.\" แปลว่าอะไร",
+      "choices": [
+        "กรุณารอสักครู่",
+        "วางสายได้",
+        "ขอเบอร์",
+        "ขอบคุณ"
+      ],
+      "answer": 0,
+      "explanation": "ใช้ตอนรับโทรศัพท์"
+    },
+    {
+      "id": "business-007",
+      "difficulty": "hard",
+      "question": "\"Looking forward to hearing from you.\" หมายถึงอะไร",
+      "choices": [
+        "ขอลาก่อน",
+        "หวังว่าจะได้รับคำตอบจากคุณ",
+        "ขออนุญาต",
+        "ขอโทษ"
+      ],
+      "answer": 1,
+      "explanation": "ใช้ปิดท้ายอีเมล"
+    },
+    {
+      "id": "business-008",
+      "difficulty": "hard",
+      "question": "\"The deadline is next Friday.\" หมายถึงอะไร",
+      "choices": [
+        "เริ่มงานวันศุกร์",
+        "หยุดวันศุกร์",
+        "กำหนดส่งคือวันศุกร์หน้า",
+        "ประชุมวันศุกร์"
+      ],
+      "answer": 2,
+      "explanation": "deadline = กำหนดส่ง"
+    }
+  ]
+}

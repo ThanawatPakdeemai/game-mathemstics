@@ -1,0 +1,112 @@
+{
+  "grade": "v1",
+  "topic": "measurement",
+  "title": "การวัดและหน่วย",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "measurement-001",
+      "difficulty": "easy",
+      "question": "หน่วยความยาวใน SI คืออะไร",
+      "choices": [
+        "กิโลกรัม",
+        "วินาที",
+        "เมตร",
+        "เคลวิน"
+      ],
+      "answer": 2,
+      "explanation": "เมตรเป็นหน่วยฐานของความยาว"
+    },
+    {
+      "id": "measurement-002",
+      "difficulty": "easy",
+      "question": "หน่วยมวลใน SI คืออะไร",
+      "choices": [
+        "กรัม",
+        "นิวตัน",
+        "ลิตร",
+        "กิโลกรัม"
+      ],
+      "answer": 3,
+      "explanation": "กิโลกรัมเป็นหน่วยฐานของมวล"
+    },
+    {
+      "id": "measurement-003",
+      "difficulty": "easy",
+      "question": "1 กิโลเมตรเท่ากับกี่เมตร",
+      "choices": [
+        "1,000",
+        "100",
+        "10",
+        "10,000"
+      ],
+      "answer": 0,
+      "explanation": "กิโล = 1,000"
+    },
+    {
+      "id": "measurement-004",
+      "difficulty": "medium",
+      "question": "1 ชั่วโมงเท่ากับกี่วินาที",
+      "choices": [
+        "60",
+        "3,600",
+        "360",
+        "6,000"
+      ],
+      "answer": 1,
+      "explanation": "60 × 60"
+    },
+    {
+      "id": "measurement-005",
+      "difficulty": "medium",
+      "question": "เครื่องมือใดใช้วัดปริมาตรของเหลว",
+      "choices": [
+        "ไม้บรรทัด",
+        "เครื่องชั่ง",
+        "กระบอกตวง",
+        "นาฬิกา"
+      ],
+      "answer": 2,
+      "explanation": "กระบอกตวงมีขีดบอกปริมาตร"
+    },
+    {
+      "id": "measurement-006",
+      "difficulty": "medium",
+      "question": "0.0250 มีเลขนัยสำคัญกี่ตัว",
+      "choices": [
+        "4",
+        "2",
+        "5",
+        "3"
+      ],
+      "answer": 3,
+      "explanation": "ศูนย์ที่อยู่หน้าสุดไม่นับ แต่ 0 ท้ายหลังจุดทศนิยมนับ"
+    },
+    {
+      "id": "measurement-007",
+      "difficulty": "hard",
+      "question": "2.5 × 10³ เท่ากับเท่าใด",
+      "choices": [
+        "2,500",
+        "250",
+        "25,000",
+        "0.0025"
+      ],
+      "answer": 0,
+      "explanation": "10³ = 1,000"
+    },
+    {
+      "id": "measurement-008",
+      "difficulty": "hard",
+      "question": "อุณหภูมิ 25 °C เท่ากับประมาณกี่เคลวิน",
+      "choices": [
+        "25 K",
+        "298 K",
+        "248 K",
+        "-248 K"
+      ],
+      "answer": 1,
+      "explanation": "K = °C + 273"
+    }
+  ]
+}

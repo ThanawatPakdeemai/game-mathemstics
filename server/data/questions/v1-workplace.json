@@ -1,0 +1,112 @@
+{
+  "grade": "v1",
+  "topic": "workplace",
+  "title": "English for Work (Basic)",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "workplace-001",
+      "difficulty": "easy",
+      "question": "\"Good morning\" ใช้เมื่อใด",
+      "choices": [
+        "ลากลับตอนกลางคืน",
+        "ทักทายตอนเช้า",
+        "ขอบคุณ",
+        "ขอโทษ"
+      ],
+      "answer": 1,
+      "explanation": "ทักทายก่อนเที่ยง"
+    },
+    {
+      "id": "workplace-002",
+      "difficulty": "easy",
+      "question": "\"Nice to meet you.\" ตอบกลับข้อใดเหมาะที่สุด",
+      "choices": [
+        "You're welcome.",
+        "Good night.",
+        "Nice to meet you too.",
+        "I'm sorry."
+      ],
+      "answer": 2,
+      "explanation": "ตอบด้วยประโยคเดียวกัน"
+    },
+    {
+      "id": "workplace-003",
+      "difficulty": "easy",
+      "question": "\"What is your job?\" ตอบว่าอย่างไร",
+      "choices": [
+        "I am fine.",
+        "I am twenty.",
+        "I live in Bangkok.",
+        "I am a mechanic."
+      ],
+      "answer": 3,
+      "explanation": "ถามเรื่องอาชีพ"
+    },
+    {
+      "id": "workplace-004",
+      "difficulty": "medium",
+      "question": "\"Could you help me, please?\" คือการทำอะไร",
+      "choices": [
+        "ขอความช่วยเหลืออย่างสุภาพ",
+        "ปฏิเสธ",
+        "บอกลา",
+        "ถามราคา"
+      ],
+      "answer": 0,
+      "explanation": "could เป็นรูปสุภาพ"
+    },
+    {
+      "id": "workplace-005",
+      "difficulty": "medium",
+      "question": "\"How much is this?\" ใช้ถามเรื่องใด",
+      "choices": [
+        "เวลา",
+        "ราคา",
+        "สถานที่",
+        "ชื่อ"
+      ],
+      "answer": 1,
+      "explanation": "how much ถามราคาหรือปริมาณ"
+    },
+    {
+      "id": "workplace-006",
+      "difficulty": "medium",
+      "question": "คำว่า \"electrician\" หมายถึงอาชีพใด",
+      "choices": [
+        "ช่างเชื่อม",
+        "พยาบาล",
+        "ช่างไฟฟ้า",
+        "ครู"
+      ],
+      "answer": 2,
+      "explanation": "electric = ไฟฟ้า"
+    },
+    {
+      "id": "workplace-007",
+      "difficulty": "hard",
+      "question": "\"I work from nine to five.\" หมายถึงข้อใด",
+      "choices": [
+        "ทำงาน 5 วัน",
+        "ทำงานเก้าชั่วโมงทุกวัน",
+        "เริ่มงาน 5 โมง",
+        "ทำงานตั้งแต่ 9 โมงถึง 5 โมงเย็น"
+      ],
+      "answer": 3,
+      "explanation": "from…to… บอกช่วงเวลา"
+    },
+    {
+      "id": "workplace-008",
+      "difficulty": "hard",
+      "question": "\"Where is the nearest restroom?\" ถามว่าอะไร",
+      "choices": [
+        "ห้องน้ำที่ใกล้ที่สุดอยู่ที่ไหน",
+        "ร้านอาหารไหนอร่อย",
+        "ทางออกอยู่ไหน",
+        "โรงแรมอยู่ที่ใด"
+      ],
+      "answer": 0,
+      "explanation": "nearest = ใกล้ที่สุด"
+    }
+  ]
+}
