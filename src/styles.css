@@ -1188,6 +1188,13 @@ p {
   background: #16a34a;
   flex: none;
 }
+.not-ready-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f43f5e;
+  flex: none;
+}
 .ready-dot-pill {
   position: absolute;
   top: 6px;

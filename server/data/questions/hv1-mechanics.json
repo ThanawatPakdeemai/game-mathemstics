@@ -1,0 +1,112 @@
+{
+  "grade": "hv1",
+  "topic": "mechanics",
+  "title": "กลศาสตร์เบื้องต้น",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "mechanics-001",
+      "difficulty": "easy",
+      "question": "หน่วยของงานในระบบ SI คืออะไร",
+      "choices": [
+        "นิวตัน",
+        "จูล",
+        "วัตต์",
+        "เมตร"
+      ],
+      "answer": 1,
+      "explanation": "งาน = แรง × ระยะทาง"
+    },
+    {
+      "id": "mechanics-002",
+      "difficulty": "easy",
+      "question": "กำลังเท่ากับข้อใด",
+      "choices": [
+        "งาน × เวลา",
+        "แรง × มวล",
+        "งาน ÷ เวลา",
+        "มวล ÷ แรง"
+      ],
+      "answer": 2,
+      "explanation": "กำลังคืออัตราการทำงาน"
+    },
+    {
+      "id": "mechanics-003",
+      "difficulty": "easy",
+      "question": "หน่วยของกำลังในระบบ SI คืออะไร",
+      "choices": [
+        "จูล",
+        "นิวตัน",
+        "แพสคาล",
+        "วัตต์"
+      ],
+      "answer": 3,
+      "explanation": "1 วัตต์ = 1 จูลต่อวินาที"
+    },
+    {
+      "id": "mechanics-004",
+      "difficulty": "medium",
+      "question": "ออกแรง 10 N ผลักวัตถุไป 5 เมตรในแนวแรง ทำงานได้เท่าใด",
+      "choices": [
+        "50 J",
+        "2 J",
+        "15 J",
+        "0.5 J"
+      ],
+      "answer": 0,
+      "explanation": "W = F × s"
+    },
+    {
+      "id": "mechanics-005",
+      "difficulty": "medium",
+      "question": "ความดัน เท่ากับข้อใด",
+      "choices": [
+        "แรง × พื้นที่",
+        "แรง ÷ พื้นที่",
+        "พื้นที่ ÷ แรง",
+        "มวล ÷ แรง"
+      ],
+      "answer": 1,
+      "explanation": "หน่วยคือแพสคาล"
+    },
+    {
+      "id": "mechanics-006",
+      "difficulty": "medium",
+      "question": "ความเร็ว 72 km/h เท่ากับกี่ m/s",
+      "choices": [
+        "72",
+        "10",
+        "20",
+        "40"
+      ],
+      "answer": 2,
+      "explanation": "72 × 1000 ÷ 3600"
+    },
+    {
+      "id": "mechanics-007",
+      "difficulty": "hard",
+      "question": "ทำงาน 600 J ในเวลา 20 s กำลังเท่าใด",
+      "choices": [
+        "12,000 W",
+        "580 W",
+        "620 W",
+        "30 W"
+      ],
+      "answer": 3,
+      "explanation": "600 ÷ 20"
+    },
+    {
+      "id": "mechanics-008",
+      "difficulty": "hard",
+      "question": "วัตถุมวล 2 kg อยู่สูง 5 m (g = 10 m/s²) มีพลังงานศักย์เท่าใด",
+      "choices": [
+        "100 J",
+        "10 J",
+        "50 J",
+        "7 J"
+      ],
+      "answer": 0,
+      "explanation": "mgh = 2 × 10 × 5"
+    }
+  ]
+}

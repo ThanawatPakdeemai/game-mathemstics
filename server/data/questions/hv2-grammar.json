@@ -1,0 +1,112 @@
+{
+  "grade": "hv2",
+  "topic": "grammar",
+  "title": "Grammar for Work (TOEIC Style)",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "grammar-001",
+      "difficulty": "easy",
+      "question": "She is interested ___ music.",
+      "choices": [
+        "on",
+        "at",
+        "in",
+        "for"
+      ],
+      "answer": 2,
+      "explanation": "interested in"
+    },
+    {
+      "id": "grammar-002",
+      "difficulty": "easy",
+      "question": "He has lived here ___ 2010.",
+      "choices": [
+        "for",
+        "in",
+        "from",
+        "since"
+      ],
+      "answer": 3,
+      "explanation": "since ใช้กับจุดเวลา"
+    },
+    {
+      "id": "grammar-003",
+      "difficulty": "easy",
+      "question": "I look forward to ___ you.",
+      "choices": [
+        "seeing",
+        "see",
+        "saw",
+        "seen"
+      ],
+      "answer": 0,
+      "explanation": "to ในที่นี้เป็นบุพบท ตามด้วย V-ing"
+    },
+    {
+      "id": "grammar-004",
+      "difficulty": "medium",
+      "question": "If it rains, we ___ stay home.",
+      "choices": [
+        "would",
+        "will",
+        "did",
+        "had"
+      ],
+      "answer": 1,
+      "explanation": "เงื่อนไขชนิดที่ 1 ใช้ will"
+    },
+    {
+      "id": "grammar-005",
+      "difficulty": "medium",
+      "question": "The report must be submitted ___ Friday.",
+      "choices": [
+        "on",
+        "in",
+        "by",
+        "at"
+      ],
+      "answer": 2,
+      "explanation": "by ใช้บอกเส้นตายของเวลา"
+    },
+    {
+      "id": "grammar-006",
+      "difficulty": "medium",
+      "question": "Neither Tom nor Anna ___ here.",
+      "choices": [
+        "are",
+        "am",
+        "be",
+        "is"
+      ],
+      "answer": 3,
+      "explanation": "ใช้กริยาตามประธานตัวที่ใกล้กริยา"
+    },
+    {
+      "id": "grammar-007",
+      "difficulty": "hard",
+      "question": "If I ___ rich, I would travel the world.",
+      "choices": [
+        "were",
+        "am",
+        "will be",
+        "have been"
+      ],
+      "answer": 0,
+      "explanation": "เงื่อนไขชนิดที่ 2 ใช้ were"
+    },
+    {
+      "id": "grammar-008",
+      "difficulty": "hard",
+      "question": "The manager, together with his staff, ___ attending.",
+      "choices": [
+        "are",
+        "is",
+        "were",
+        "have been"
+      ],
+      "answer": 1,
+      "explanation": "กริยาสอดคล้องกับ manager"
+    }
+  ]
+}

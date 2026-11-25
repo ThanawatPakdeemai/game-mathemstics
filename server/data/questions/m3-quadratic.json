@@ -1,0 +1,112 @@
+{
+  "grade": "m3",
+  "topic": "quadratic",
+  "title": "สมการกำลังสอง",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "quadratic-001",
+      "difficulty": "easy",
+      "question": "ข้อใดเป็นสมการกำลังสองตัวแปรเดียว",
+      "choices": [
+        "2x + 1 = 0",
+        "x³ = 8",
+        "xy = 4",
+        "x² + 3x + 2 = 0"
+      ],
+      "answer": 3,
+      "explanation": "กำลังสูงสุดของ x เป็น 2"
+    },
+    {
+      "id": "quadratic-002",
+      "difficulty": "easy",
+      "question": "คำตอบของสมการ x² = 49 คือข้อใด",
+      "choices": [
+        "7 และ -7",
+        "7 เท่านั้น",
+        "49",
+        "-49"
+      ],
+      "answer": 0,
+      "explanation": "(7)² = 49 และ (-7)² = 49"
+    },
+    {
+      "id": "quadratic-003",
+      "difficulty": "easy",
+      "question": "สมการ x² - 5x + 6 = 0 มีคำตอบเป็นเท่าใด",
+      "choices": [
+        "-2 และ -3",
+        "2 และ 3",
+        "1 และ 6",
+        "-1 และ 6"
+      ],
+      "answer": 1,
+      "explanation": "(x - 2)(x - 3) = 0"
+    },
+    {
+      "id": "quadratic-004",
+      "difficulty": "medium",
+      "question": "สมการ (x + 4)(x - 1) = 0 มีคำตอบคือ",
+      "choices": [
+        "x = 4 หรือ x = -1",
+        "x = 4 หรือ x = 1",
+        "x = -4 หรือ x = 1",
+        "x = -4 หรือ x = -1"
+      ],
+      "answer": 2,
+      "explanation": "ให้แต่ละตัวประกอบเท่ากับ 0"
+    },
+    {
+      "id": "quadratic-005",
+      "difficulty": "medium",
+      "question": "x² - 9 แยกตัวประกอบได้เป็น",
+      "choices": [
+        "(x - 9)(x + 1)",
+        "(x - 3)²",
+        "(x + 3)²",
+        "(x - 3)(x + 3)"
+      ],
+      "answer": 3,
+      "explanation": "ผลต่างกำลังสอง"
+    },
+    {
+      "id": "quadratic-006",
+      "difficulty": "medium",
+      "question": "สมการ x² + 2x - 15 = 0 มีคำตอบคือ",
+      "choices": [
+        "3 และ -5",
+        "-3 และ 5",
+        "3 และ 5",
+        "-3 และ -5"
+      ],
+      "answer": 0,
+      "explanation": "(x - 3)(x + 5) = 0"
+    },
+    {
+      "id": "quadratic-007",
+      "difficulty": "hard",
+      "question": "ถ้า x = 2 เป็นคำตอบของ x² + kx - 6 = 0 แล้ว k เท่ากับเท่าใด",
+      "choices": [
+        "-1",
+        "1",
+        "2",
+        "-2"
+      ],
+      "answer": 1,
+      "explanation": "4 + 2k - 6 = 0 ดังนั้น k = 1"
+    },
+    {
+      "id": "quadratic-008",
+      "difficulty": "hard",
+      "question": "ผลบวกของคำตอบของ x² - 7x + 10 = 0 เท่ากับเท่าใด",
+      "choices": [
+        "10",
+        "-7",
+        "7",
+        "-10"
+      ],
+      "answer": 2,
+      "explanation": "คำตอบคือ 2 และ 5"
+    }
+  ]
+}

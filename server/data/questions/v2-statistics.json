@@ -1,0 +1,112 @@
+{
+  "grade": "v2",
+  "topic": "statistics",
+  "title": "สถิติเบื้องต้น",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "statistics-001",
+      "difficulty": "easy",
+      "question": "ค่าเฉลี่ยเลขคณิตของ 2, 4, 6 เท่ากับเท่าใด",
+      "choices": [
+        "6",
+        "3",
+        "4",
+        "12"
+      ],
+      "answer": 2,
+      "explanation": "(2 + 4 + 6) ÷ 3"
+    },
+    {
+      "id": "statistics-002",
+      "difficulty": "easy",
+      "question": "มัธยฐานของ 1, 3, 5, 7, 9 เท่ากับเท่าใด",
+      "choices": [
+        "3",
+        "7",
+        "25",
+        "5"
+      ],
+      "answer": 3,
+      "explanation": "ค่ากลางเมื่อเรียงข้อมูล"
+    },
+    {
+      "id": "statistics-003",
+      "difficulty": "easy",
+      "question": "ฐานนิยมของ 2, 3, 3, 4, 5 เท่ากับเท่าใด",
+      "choices": [
+        "3",
+        "2",
+        "4",
+        "5"
+      ],
+      "answer": 0,
+      "explanation": "ค่าที่ซ้ำมากที่สุด"
+    },
+    {
+      "id": "statistics-004",
+      "difficulty": "medium",
+      "question": "ค่าเฉลี่ยของ 10, 20, 30, 40 เท่ากับเท่าใด",
+      "choices": [
+        "20",
+        "25",
+        "30",
+        "100"
+      ],
+      "answer": 1,
+      "explanation": "100 ÷ 4"
+    },
+    {
+      "id": "statistics-005",
+      "difficulty": "medium",
+      "question": "มัธยฐานของ 2, 4, 6, 8 เท่ากับเท่าใด",
+      "choices": [
+        "4",
+        "6",
+        "5",
+        "20"
+      ],
+      "answer": 2,
+      "explanation": "(4 + 6) ÷ 2"
+    },
+    {
+      "id": "statistics-006",
+      "difficulty": "medium",
+      "question": "พิสัยของข้อมูล 5, 9, 12, 20 เท่ากับเท่าใด",
+      "choices": [
+        "7",
+        "20",
+        "46",
+        "15"
+      ],
+      "answer": 3,
+      "explanation": "20 - 5"
+    },
+    {
+      "id": "statistics-007",
+      "difficulty": "hard",
+      "question": "ค่าเฉลี่ยของข้อมูล 5 จำนวนเท่ากับ 8 ผลรวมของข้อมูลเท่าใด",
+      "choices": [
+        "40",
+        "13",
+        "3",
+        "8"
+      ],
+      "answer": 0,
+      "explanation": "5 × 8"
+    },
+    {
+      "id": "statistics-008",
+      "difficulty": "hard",
+      "question": "ข้อมูล 4 จำนวน ค่าเฉลี่ย 10 เพิ่มข้อมูล 20 อีก 1 จำนวน ค่าเฉลี่ยใหม่เท่าใด",
+      "choices": [
+        "15",
+        "12",
+        "14",
+        "10"
+      ],
+      "answer": 1,
+      "explanation": "(40 + 20) ÷ 5"
+    }
+  ]
+}

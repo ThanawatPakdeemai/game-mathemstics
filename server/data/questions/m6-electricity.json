@@ -1,0 +1,112 @@
+{
+  "grade": "m6",
+  "topic": "electricity",
+  "title": "ไฟฟ้า",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "electricity-001",
+      "difficulty": "easy",
+      "question": "หน่วยของกระแสไฟฟ้าคืออะไร",
+      "choices": [
+        "แอมแปร์",
+        "โวลต์",
+        "โอห์ม",
+        "วัตต์"
+      ],
+      "answer": 0,
+      "explanation": "กระแสไฟฟ้าเขียนแทนด้วย I"
+    },
+    {
+      "id": "electricity-002",
+      "difficulty": "easy",
+      "question": "หน่วยของความต่างศักย์ไฟฟ้าคืออะไร",
+      "choices": [
+        "แอมแปร์",
+        "โวลต์",
+        "โอห์ม",
+        "จูล"
+      ],
+      "answer": 1,
+      "explanation": "ความต่างศักย์เขียนแทนด้วย V"
+    },
+    {
+      "id": "electricity-003",
+      "difficulty": "easy",
+      "question": "กฎของโอห์มคือข้อใด",
+      "choices": [
+        "V = I/R",
+        "V = R/I",
+        "V = IR",
+        "I = VR"
+      ],
+      "answer": 2,
+      "explanation": "ความต่างศักย์ = กระแส × ความต้านทาน"
+    },
+    {
+      "id": "electricity-004",
+      "difficulty": "medium",
+      "question": "ตัวต้านทาน 10 Ω ต่อกับแบตเตอรี่ 20 V กระแสไฟฟ้ามีค่าเท่าใด",
+      "choices": [
+        "200 A",
+        "0.5 A",
+        "10 A",
+        "2 A"
+      ],
+      "answer": 3,
+      "explanation": "I = V/R = 20/10"
+    },
+    {
+      "id": "electricity-005",
+      "difficulty": "medium",
+      "question": "ตัวต้านทาน 4 Ω และ 6 Ω ต่อแบบอนุกรม ความต้านทานรวมเท่าใด",
+      "choices": [
+        "10 Ω",
+        "2.4 Ω",
+        "24 Ω",
+        "5 Ω"
+      ],
+      "answer": 0,
+      "explanation": "อนุกรมนำมาบวกกัน"
+    },
+    {
+      "id": "electricity-006",
+      "difficulty": "medium",
+      "question": "ตัวต้านทาน 6 Ω สองตัวต่อแบบขนาน ความต้านทานรวมเท่าใด",
+      "choices": [
+        "12 Ω",
+        "3 Ω",
+        "6 Ω",
+        "1 Ω"
+      ],
+      "answer": 1,
+      "explanation": "1/R = 1/6 + 1/6 = 1/3"
+    },
+    {
+      "id": "electricity-007",
+      "difficulty": "hard",
+      "question": "เครื่องใช้ไฟฟ้ากำลัง 1000 W ใช้งาน 2 ชั่วโมง ใช้พลังงานกี่ kWh",
+      "choices": [
+        "1 kWh",
+        "0.5 kWh",
+        "2 kWh",
+        "2000 kWh"
+      ],
+      "answer": 2,
+      "explanation": "1 kW × 2 h"
+    },
+    {
+      "id": "electricity-008",
+      "difficulty": "hard",
+      "question": "อุปกรณ์ใดใช้วัดกระแสไฟฟ้า",
+      "choices": [
+        "โวลต์มิเตอร์",
+        "บารอมิเตอร์",
+        "เทอร์โมมิเตอร์",
+        "แอมมิเตอร์"
+      ],
+      "answer": 3,
+      "explanation": "ต่ออนุกรมกับวงจร"
+    }
+  ]
+}

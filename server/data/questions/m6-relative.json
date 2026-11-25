@@ -1,0 +1,112 @@
+{
+  "grade": "m6",
+  "topic": "relative",
+  "title": "Relative Clauses",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "relative-001",
+      "difficulty": "easy",
+      "question": "The man ___ lives next door is a doctor.",
+      "choices": [
+        "which",
+        "whose",
+        "where",
+        "who"
+      ],
+      "answer": 3,
+      "explanation": "who ใช้แทนคน เป็นประธาน"
+    },
+    {
+      "id": "relative-002",
+      "difficulty": "easy",
+      "question": "The book ___ I bought is interesting.",
+      "choices": [
+        "which",
+        "who",
+        "where",
+        "whose"
+      ],
+      "answer": 0,
+      "explanation": "which ใช้แทนสิ่งของ"
+    },
+    {
+      "id": "relative-003",
+      "difficulty": "easy",
+      "question": "This is the girl ___ won the prize.",
+      "choices": [
+        "whose",
+        "who",
+        "which",
+        "where"
+      ],
+      "answer": 1,
+      "explanation": "who แทนคนที่เป็นประธานของอนุประโยค"
+    },
+    {
+      "id": "relative-004",
+      "difficulty": "medium",
+      "question": "The woman ___ car was stolen called the police.",
+      "choices": [
+        "who",
+        "which",
+        "whose",
+        "whom"
+      ],
+      "answer": 2,
+      "explanation": "whose แสดงความเป็นเจ้าของ"
+    },
+    {
+      "id": "relative-005",
+      "difficulty": "medium",
+      "question": "That is the school ___ I studied.",
+      "choices": [
+        "who",
+        "whose",
+        "whom",
+        "where"
+      ],
+      "answer": 3,
+      "explanation": "where ใช้แทนสถานที่"
+    },
+    {
+      "id": "relative-006",
+      "difficulty": "medium",
+      "question": "I know the boy ___ you met yesterday.",
+      "choices": [
+        "whom",
+        "whose",
+        "where",
+        "which"
+      ],
+      "answer": 0,
+      "explanation": "whom ใช้แทนคนที่เป็นกรรม"
+    },
+    {
+      "id": "relative-007",
+      "difficulty": "hard",
+      "question": "ประโยคใดถูกต้อง",
+      "choices": [
+        "The pen who I lost was blue.",
+        "The pen that I lost was blue.",
+        "The pen whose I lost was blue.",
+        "The pen where I lost was blue."
+      ],
+      "answer": 1,
+      "explanation": "that ใช้แทนสิ่งของได้"
+    },
+    {
+      "id": "relative-008",
+      "difficulty": "hard",
+      "question": "รวมประโยค \"I met a man. His brother is a pilot.\" ได้ถูกต้อง",
+      "choices": [
+        "I met a man who his brother is a pilot.",
+        "I met a man which brother is a pilot.",
+        "I met a man whose brother is a pilot.",
+        "I met a man whom brother is a pilot."
+      ],
+      "answer": 2,
+      "explanation": "whose แทน his"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "grade": "m2",
+  "topic": "past",
+  "title": "Past Simple & Past Continuous",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "past-001",
+      "difficulty": "easy",
+      "question": "Yesterday, I ___ to the market.",
+      "choices": [
+        "go",
+        "goes",
+        "went",
+        "going"
+      ],
+      "answer": 2,
+      "explanation": "yesterday ใช้อดีต went"
+    },
+    {
+      "id": "past-002",
+      "difficulty": "easy",
+      "question": "รูปอดีต (V2) ของ \"eat\" คือข้อใด",
+      "choices": [
+        "eaten",
+        "eats",
+        "eating",
+        "ate"
+      ],
+      "answer": 3,
+      "explanation": "eat - ate - eaten"
+    },
+    {
+      "id": "past-003",
+      "difficulty": "easy",
+      "question": "He ___ his homework last night.",
+      "choices": [
+        "did",
+        "do",
+        "does",
+        "doing"
+      ],
+      "answer": 0,
+      "explanation": "last night ใช้ did"
+    },
+    {
+      "id": "past-004",
+      "difficulty": "medium",
+      "question": "Which sentence is correct?",
+      "choices": [
+        "She didn't went to school.",
+        "She didn't go to school.",
+        "She doesn't went to school.",
+        "She not go to school."
+      ],
+      "answer": 1,
+      "explanation": "didn't ตามด้วยกริยาช่อง 1"
+    },
+    {
+      "id": "past-005",
+      "difficulty": "medium",
+      "question": "\"Did you watch the movie?\" ตอบว่าไม่ได้ดูข้อใดถูก",
+      "choices": [
+        "No, I don't.",
+        "No, I wasn't.",
+        "No, I didn't.",
+        "No, I didn't watched."
+      ],
+      "answer": 2,
+      "explanation": "ตอบตามกริยาช่วย did"
+    },
+    {
+      "id": "past-006",
+      "difficulty": "medium",
+      "question": "They ___ playing football when it started to rain.",
+      "choices": [
+        "was",
+        "are",
+        "is",
+        "were"
+      ],
+      "answer": 3,
+      "explanation": "ประธานพหูพจน์ในอดีตใช้ were"
+    },
+    {
+      "id": "past-007",
+      "difficulty": "hard",
+      "question": "I ___ TV when the phone rang.",
+      "choices": [
+        "was watching",
+        "watched",
+        "am watching",
+        "watch"
+      ],
+      "answer": 0,
+      "explanation": "เหตุการณ์ที่กำลังทำอยู่ถูกขัดจังหวะ ใช้ past continuous"
+    },
+    {
+      "id": "past-008",
+      "difficulty": "hard",
+      "question": "รูปอดีต (V2) ของ \"buy\" คือข้อใด",
+      "choices": [
+        "buyed",
+        "bought",
+        "boughten",
+        "buys"
+      ],
+      "answer": 1,
+      "explanation": "buy - bought - bought"
+    }
+  ]
+}

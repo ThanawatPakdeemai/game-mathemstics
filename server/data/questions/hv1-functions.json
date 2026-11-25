@@ -1,0 +1,112 @@
+{
+  "grade": "hv1",
+  "topic": "functions",
+  "title": "ฟังก์ชันและกราฟ",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "functions-001",
+      "difficulty": "easy",
+      "question": "ถ้า f(x) = 2x + 1 แล้ว f(3) เท่ากับเท่าใด",
+      "choices": [
+        "6",
+        "5",
+        "9",
+        "7"
+      ],
+      "answer": 3,
+      "explanation": "2(3) + 1 = 7"
+    },
+    {
+      "id": "functions-002",
+      "difficulty": "easy",
+      "question": "กราฟของ y = 2x + 1 ตัดแกน y ที่จุดใด",
+      "choices": [
+        "(0, 1)",
+        "(0, 2)",
+        "(1, 0)",
+        "(0, -1)"
+      ],
+      "answer": 0,
+      "explanation": "ให้ x = 0 จะได้ y = 1"
+    },
+    {
+      "id": "functions-003",
+      "difficulty": "easy",
+      "question": "เส้นตรง y = 3x - 2 มีความชันเท่าใด",
+      "choices": [
+        "-2",
+        "3",
+        "2",
+        "1"
+      ],
+      "answer": 1,
+      "explanation": "y = mx + c โดย m คือความชัน"
+    },
+    {
+      "id": "functions-004",
+      "difficulty": "medium",
+      "question": "เส้นตรงผ่านจุด (0, 0) และ (2, 4) มีความชันเท่าใด",
+      "choices": [
+        "4",
+        "1/2",
+        "2",
+        "0"
+      ],
+      "answer": 2,
+      "explanation": "(4 - 0) ÷ (2 - 0)"
+    },
+    {
+      "id": "functions-005",
+      "difficulty": "medium",
+      "question": "ถ้า f(x) = x² - 4 แล้ว f(-2) เท่ากับเท่าใด",
+      "choices": [
+        "-8",
+        "8",
+        "4",
+        "0"
+      ],
+      "answer": 3,
+      "explanation": "(-2)² - 4 = 0"
+    },
+    {
+      "id": "functions-006",
+      "difficulty": "medium",
+      "question": "โดเมนของ f(x) = 1/x คือข้อใด",
+      "choices": [
+        "จำนวนจริงทุกตัวที่ไม่ใช่ 0",
+        "จำนวนจริงบวกเท่านั้น",
+        "จำนวนจริงทุกตัว",
+        "จำนวนจริงลบเท่านั้น"
+      ],
+      "answer": 0,
+      "explanation": "ตัวส่วนห้ามเป็น 0"
+    },
+    {
+      "id": "functions-007",
+      "difficulty": "hard",
+      "question": "ถ้า f(x) = 3x - 1 และ f(a) = 11 แล้ว a เท่ากับเท่าใด",
+      "choices": [
+        "3",
+        "4",
+        "10",
+        "12"
+      ],
+      "answer": 1,
+      "explanation": "3a - 1 = 11 ได้ a = 4"
+    },
+    {
+      "id": "functions-008",
+      "difficulty": "hard",
+      "question": "จุดยอดของพาราโบลา y = x² - 4x + 3 คือจุดใด",
+      "choices": [
+        "(2, 1)",
+        "(-2, -1)",
+        "(2, -1)",
+        "(4, 3)"
+      ],
+      "answer": 2,
+      "explanation": "x = -b/2a = 2 แล้ว y = 4 - 8 + 3 = -1"
+    }
+  ]
+}
