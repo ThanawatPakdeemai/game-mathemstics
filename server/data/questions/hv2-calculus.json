@@ -1,0 +1,112 @@
+{
+  "grade": "hv2",
+  "topic": "calculus",
+  "title": "แคลคูลัสเบื้องต้น",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "calculus-001",
+      "difficulty": "easy",
+      "question": "อนุพันธ์ของ x² เท่ากับข้อใด",
+      "choices": [
+        "x",
+        "2x",
+        "x²",
+        "2"
+      ],
+      "answer": 1,
+      "explanation": "d/dx xⁿ = nxⁿ⁻¹"
+    },
+    {
+      "id": "calculus-002",
+      "difficulty": "easy",
+      "question": "อนุพันธ์ของค่าคงที่ 5 เท่ากับเท่าใด",
+      "choices": [
+        "5",
+        "1",
+        "0",
+        "x"
+      ],
+      "answer": 2,
+      "explanation": "ค่าคงที่ไม่เปลี่ยนแปลง"
+    },
+    {
+      "id": "calculus-003",
+      "difficulty": "easy",
+      "question": "d/dx (3x) เท่ากับเท่าใด",
+      "choices": [
+        "3x",
+        "x",
+        "0",
+        "3"
+      ],
+      "answer": 3,
+      "explanation": "ความชันของ 3x คือ 3"
+    },
+    {
+      "id": "calculus-004",
+      "difficulty": "medium",
+      "question": "d/dx (x³) เท่ากับข้อใด",
+      "choices": [
+        "3x²",
+        "x²",
+        "3x",
+        "x³"
+      ],
+      "answer": 0,
+      "explanation": "นำกำลังลงมาคูณแล้วลดกำลังลง 1"
+    },
+    {
+      "id": "calculus-005",
+      "difficulty": "medium",
+      "question": "d/dx (2x² + 5x) เท่ากับข้อใด",
+      "choices": [
+        "2x + 5",
+        "4x + 5",
+        "4x",
+        "x + 5"
+      ],
+      "answer": 1,
+      "explanation": "อนุพันธ์ทีละพจน์"
+    },
+    {
+      "id": "calculus-006",
+      "difficulty": "medium",
+      "question": "ลิมิตของ x เมื่อ x เข้าใกล้ 3 เท่ากับเท่าใด",
+      "choices": [
+        "0",
+        "อนันต์",
+        "3",
+        "หาค่าไม่ได้"
+      ],
+      "answer": 2,
+      "explanation": "ฟังก์ชันต่อเนื่อง"
+    },
+    {
+      "id": "calculus-007",
+      "difficulty": "hard",
+      "question": "ความชันของเส้นสัมผัสของ y = x² ที่ x = 3 เท่ากับเท่าใด",
+      "choices": [
+        "9",
+        "3",
+        "2",
+        "6"
+      ],
+      "answer": 3,
+      "explanation": "y′ = 2x แทน x = 3"
+    },
+    {
+      "id": "calculus-008",
+      "difficulty": "hard",
+      "question": "จุดสูงสุดสัมพัทธ์เกิดเมื่อ f′(x) = 0 และ f″(x) มีค่าอย่างไร",
+      "choices": [
+        "น้อยกว่า 0",
+        "มากกว่า 0",
+        "เท่ากับ 0",
+        "เป็นอนันต์"
+      ],
+      "answer": 0,
+      "explanation": "อนุพันธ์อันดับสองเป็นลบแสดงว่ากราฟคว่ำ"
+    }
+  ]
+}

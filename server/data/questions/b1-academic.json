@@ -1,0 +1,112 @@
+{
+  "grade": "b1",
+  "topic": "academic",
+  "title": "Academic Reading",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "academic-001",
+      "difficulty": "easy",
+      "question": "\"Main idea\" ของบทความคืออะไร",
+      "choices": [
+        "ชื่อผู้เขียน",
+        "รายละเอียดปลีกย่อย",
+        "ใจความหลักของเรื่อง",
+        "ภาพประกอบ"
+      ],
+      "answer": 2,
+      "explanation": "เป็นสิ่งที่เรื่องต้องการสื่อมากที่สุด"
+    },
+    {
+      "id": "academic-002",
+      "difficulty": "easy",
+      "question": "\"Synonym\" คืออะไร",
+      "choices": [
+        "คำตรงข้าม",
+        "คำที่สะกดเหมือนกัน",
+        "คำย่อ",
+        "คำที่มีความหมายเหมือนหรือใกล้เคียงกัน"
+      ],
+      "answer": 3,
+      "explanation": "เช่น big กับ large"
+    },
+    {
+      "id": "academic-003",
+      "difficulty": "easy",
+      "question": "\"Antonym\" คืออะไร",
+      "choices": [
+        "คำที่มีความหมายตรงข้ามกัน",
+        "คำที่ความหมายเหมือนกัน",
+        "คำย่อ",
+        "คำเฉพาะทาง"
+      ],
+      "answer": 0,
+      "explanation": "เช่น hot กับ cold"
+    },
+    {
+      "id": "academic-004",
+      "difficulty": "medium",
+      "question": "\"However\" ใช้เชื่อมความแบบใด",
+      "choices": [
+        "ผลที่ตามมา",
+        "ขัดแย้ง",
+        "ลำดับ",
+        "ยกตัวอย่าง"
+      ],
+      "answer": 1,
+      "explanation": "However = อย่างไรก็ตาม"
+    },
+    {
+      "id": "academic-005",
+      "difficulty": "medium",
+      "question": "\"Therefore\" ใช้แสดงความสัมพันธ์แบบใด",
+      "choices": [
+        "ขัดแย้ง",
+        "ตัวอย่าง",
+        "ผลที่ตามมา",
+        "เวลา"
+      ],
+      "answer": 2,
+      "explanation": "Therefore = ดังนั้น"
+    },
+    {
+      "id": "academic-006",
+      "difficulty": "medium",
+      "question": "\"For instance\" ใช้เพื่ออะไร",
+      "choices": [
+        "สรุปความ",
+        "แย้ง",
+        "ให้เหตุผล",
+        "ยกตัวอย่าง"
+      ],
+      "answer": 3,
+      "explanation": "for instance = ตัวอย่างเช่น"
+    },
+    {
+      "id": "academic-007",
+      "difficulty": "hard",
+      "question": "\"Abstract\" ในงานวิจัยหมายถึงส่วนใด",
+      "choices": [
+        "บทคัดย่อ",
+        "บทนำ",
+        "ภาคผนวก",
+        "บรรณานุกรม"
+      ],
+      "answer": 0,
+      "explanation": "สรุปย่อของงานวิจัย"
+    },
+    {
+      "id": "academic-008",
+      "difficulty": "hard",
+      "question": "\"The author argues that...\" แปลว่าอะไร",
+      "choices": [
+        "ผู้เขียนลืมว่า...",
+        "ผู้เขียนโต้แย้งหรือเสนอว่า...",
+        "ผู้เขียนถามว่า...",
+        "ผู้เขียนเล่นว่า..."
+      ],
+      "answer": 1,
+      "explanation": "argue ในงานวิชาการหมายถึงให้เหตุผลสนับสนุน"
+    }
+  ]
+}

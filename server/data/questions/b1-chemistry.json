@@ -1,0 +1,112 @@
+{
+  "grade": "b1",
+  "topic": "chemistry",
+  "title": "เคมีทั่วไป",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "chemistry-001",
+      "difficulty": "easy",
+      "question": "น้ำมีสูตรเคมีอะไร",
+      "choices": [
+        "CO₂",
+        "O₂",
+        "NaCl",
+        "H₂O"
+      ],
+      "answer": 3,
+      "explanation": "ไฮโดรเจน 2 อะตอม ออกซิเจน 1 อะตอม"
+    },
+    {
+      "id": "chemistry-002",
+      "difficulty": "easy",
+      "question": "ธาตุที่มีสัญลักษณ์ Na คือธาตุใด",
+      "choices": [
+        "โซเดียม",
+        "ไนโตรเจน",
+        "นีออน",
+        "นิกเกิล"
+      ],
+      "answer": 0,
+      "explanation": "Na มาจากภาษาละติน natrium"
+    },
+    {
+      "id": "chemistry-003",
+      "difficulty": "easy",
+      "question": "สารละลายที่มี pH น้อยกว่า 7 เป็นสารละลายประเภทใด",
+      "choices": [
+        "เบส",
+        "กรด",
+        "กลาง",
+        "เกลือ"
+      ],
+      "answer": 1,
+      "explanation": "pH ต่ำคือกรด"
+    },
+    {
+      "id": "chemistry-004",
+      "difficulty": "medium",
+      "question": "เกลือแกงมีสูตรเคมีอะไร",
+      "choices": [
+        "KCl",
+        "CaCO₃",
+        "NaCl",
+        "NaOH"
+      ],
+      "answer": 2,
+      "explanation": "โซเดียมคลอไรด์"
+    },
+    {
+      "id": "chemistry-005",
+      "difficulty": "medium",
+      "question": "ปฏิกิริยาที่ปล่อยความร้อนออกมาเรียกว่าอะไร",
+      "choices": [
+        "ปฏิกิริยาดูดความร้อน",
+        "ปฏิกิริยาสะเทิน",
+        "ปฏิกิริยาเร่ง",
+        "ปฏิกิริยาคายความร้อน"
+      ],
+      "answer": 3,
+      "explanation": "เช่น การเผาไหม้"
+    },
+    {
+      "id": "chemistry-006",
+      "difficulty": "medium",
+      "question": "เลขอาโวกาโดรมีค่าประมาณเท่าใด",
+      "choices": [
+        "6.02 × 10²³",
+        "3.14",
+        "9.8",
+        "1.6 × 10⁻¹⁹"
+      ],
+      "answer": 0,
+      "explanation": "จำนวนอนุภาคต่อ 1 โมล"
+    },
+    {
+      "id": "chemistry-007",
+      "difficulty": "hard",
+      "question": "มวลโมเลกุลของ H₂O (H = 1, O = 16) เท่ากับเท่าใด",
+      "choices": [
+        "17",
+        "18",
+        "16",
+        "20"
+      ],
+      "answer": 1,
+      "explanation": "1 + 1 + 16"
+    },
+    {
+      "id": "chemistry-008",
+      "difficulty": "hard",
+      "question": "สารละลาย NaOH 0.1 โมลต่อลิตร ปริมาตร 2 ลิตร มีกี่โมล",
+      "choices": [
+        "0.05 โมล",
+        "2 โมล",
+        "0.2 โมล",
+        "0.1 โมล"
+      ],
+      "answer": 2,
+      "explanation": "0.1 × 2"
+    }
+  ]
+}

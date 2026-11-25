@@ -1,0 +1,112 @@
+{
+  "grade": "m5",
+  "topic": "reported",
+  "title": "Reported Speech",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "reported-001",
+      "difficulty": "easy",
+      "question": "\"I am happy,\" she said. → She said that she ___ happy.",
+      "choices": [
+        "is",
+        "were",
+        "was",
+        "be"
+      ],
+      "answer": 2,
+      "explanation": "ย้อนกาล am เป็น was"
+    },
+    {
+      "id": "reported-002",
+      "difficulty": "easy",
+      "question": "He said, \"I like pizza.\" → He said that he ___ pizza.",
+      "choices": [
+        "like",
+        "will like",
+        "is liking",
+        "liked"
+      ],
+      "answer": 3,
+      "explanation": "ย้อนกาลปัจจุบันเป็นอดีต"
+    },
+    {
+      "id": "reported-003",
+      "difficulty": "easy",
+      "question": "She ___ me that she was tired.",
+      "choices": [
+        "told",
+        "said",
+        "spoke",
+        "talked"
+      ],
+      "answer": 0,
+      "explanation": "told ตามด้วยกรรม ส่วน said ไม่ตามด้วยกรรม"
+    },
+    {
+      "id": "reported-004",
+      "difficulty": "medium",
+      "question": "\"I will help you,\" he said. → He said he ___ help me.",
+      "choices": [
+        "will",
+        "would",
+        "can",
+        "shall"
+      ],
+      "answer": 1,
+      "explanation": "will เปลี่ยนเป็น would"
+    },
+    {
+      "id": "reported-005",
+      "difficulty": "medium",
+      "question": "\"Where do you live?\" he asked me. → He asked me where I ___.",
+      "choices": [
+        "live",
+        "do live",
+        "lived",
+        "lives"
+      ],
+      "answer": 2,
+      "explanation": "คำถามเปลี่ยนเป็นประโยคบอกเล่าและย้อนกาล"
+    },
+    {
+      "id": "reported-006",
+      "difficulty": "medium",
+      "question": "\"Are you tired?\" she asked. → She asked ___ I was tired.",
+      "choices": [
+        "that",
+        "what",
+        "where",
+        "if"
+      ],
+      "answer": 3,
+      "explanation": "คำถาม yes/no ใช้ if หรือ whether"
+    },
+    {
+      "id": "reported-007",
+      "difficulty": "hard",
+      "question": "\"I have finished my work,\" she said. → She said she ___ her work.",
+      "choices": [
+        "had finished",
+        "has finished",
+        "have finished",
+        "finished had"
+      ],
+      "answer": 0,
+      "explanation": "present perfect เปลี่ยนเป็น past perfect"
+    },
+    {
+      "id": "reported-008",
+      "difficulty": "hard",
+      "question": "\"Don't be late,\" the teacher said. → The teacher told us ___ late.",
+      "choices": [
+        "don't be",
+        "not to be",
+        "to not being",
+        "not being"
+      ],
+      "answer": 1,
+      "explanation": "คำสั่งปฏิเสธใช้ not to + V1"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "grade": "b1",
+  "topic": "calculus",
+  "title": "ลิมิตและอนุพันธ์",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "calculus-001",
+      "difficulty": "easy",
+      "question": "ค่าลิมิตของ 2x + 1 เมื่อ x เข้าใกล้ 2 เท่ากับเท่าใด",
+      "choices": [
+        "4",
+        "5",
+        "2",
+        "หาค่าไม่ได้"
+      ],
+      "answer": 1,
+      "explanation": "แทนค่า x = 2"
+    },
+    {
+      "id": "calculus-002",
+      "difficulty": "easy",
+      "question": "d/dx (x⁵) เท่ากับข้อใด",
+      "choices": [
+        "x⁴",
+        "5x⁵",
+        "5x⁴",
+        "4x⁵"
+      ],
+      "answer": 2,
+      "explanation": "กฎยกกำลัง"
+    },
+    {
+      "id": "calculus-003",
+      "difficulty": "easy",
+      "question": "d/dx (sin x) เท่ากับข้อใด",
+      "choices": [
+        "-sin x",
+        "sin x",
+        "-cos x",
+        "cos x"
+      ],
+      "answer": 3,
+      "explanation": "สูตรอนุพันธ์ตรีโกณ"
+    },
+    {
+      "id": "calculus-004",
+      "difficulty": "medium",
+      "question": "d/dx (eˣ) เท่ากับข้อใด",
+      "choices": [
+        "eˣ",
+        "x·eˣ⁻¹",
+        "1",
+        "ln x"
+      ],
+      "answer": 0,
+      "explanation": "eˣ เป็นฟังก์ชันที่อนุพันธ์เท่าตัวเอง"
+    },
+    {
+      "id": "calculus-005",
+      "difficulty": "medium",
+      "question": "ค่าลิมิตของ (x² - 1)/(x - 1) เมื่อ x เข้าใกล้ 1 เท่ากับเท่าใด",
+      "choices": [
+        "0",
+        "2",
+        "1",
+        "หาค่าไม่ได้"
+      ],
+      "answer": 1,
+      "explanation": "แยกตัวประกอบ (x - 1)(x + 1) ตัดกัน เหลือ x + 1"
+    },
+    {
+      "id": "calculus-006",
+      "difficulty": "medium",
+      "question": "อินทิกรัลของ 2x เทียบ x เท่ากับข้อใด",
+      "choices": [
+        "2x² + C",
+        "x + C",
+        "x² + C",
+        "2 + C"
+      ],
+      "answer": 2,
+      "explanation": "อนุพันธ์ของ x² คือ 2x"
+    },
+    {
+      "id": "calculus-007",
+      "difficulty": "hard",
+      "question": "อินทิกรัลของ cos x เทียบ x เท่ากับข้อใด",
+      "choices": [
+        "-sin x + C",
+        "cos x + C",
+        "tan x + C",
+        "sin x + C"
+      ],
+      "answer": 3,
+      "explanation": "อนุพันธ์ของ sin x คือ cos x"
+    },
+    {
+      "id": "calculus-008",
+      "difficulty": "hard",
+      "question": "d/dx (ln x) เท่ากับข้อใด",
+      "choices": [
+        "1/x",
+        "x",
+        "ln x",
+        "eˣ"
+      ],
+      "answer": 0,
+      "explanation": "อนุพันธ์ของลอการิทึมธรรมชาติ"
+    }
+  ]
+}

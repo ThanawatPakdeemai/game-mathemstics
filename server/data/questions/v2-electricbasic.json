@@ -1,0 +1,112 @@
+{
+  "grade": "v2",
+  "topic": "electricbasic",
+  "title": "ไฟฟ้าเบื้องต้น",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "electricbasic-001",
+      "difficulty": "easy",
+      "question": "วัสดุใดนำไฟฟ้าได้ดี",
+      "choices": [
+        "ทองแดง",
+        "ยาง",
+        "พลาสติก",
+        "แก้ว"
+      ],
+      "answer": 0,
+      "explanation": "โลหะนำไฟฟ้าได้ดี"
+    },
+    {
+      "id": "electricbasic-002",
+      "difficulty": "easy",
+      "question": "วัสดุใดเป็นฉนวนไฟฟ้า",
+      "choices": [
+        "เหล็ก",
+        "พลาสติก",
+        "อะลูมิเนียม",
+        "ทองแดง"
+      ],
+      "answer": 1,
+      "explanation": "ฉนวนไม่นำไฟฟ้า"
+    },
+    {
+      "id": "electricbasic-003",
+      "difficulty": "easy",
+      "question": "เครื่องมือใดใช้วัดความต่างศักย์ไฟฟ้า",
+      "choices": [
+        "แอมมิเตอร์",
+        "เทอร์โมมิเตอร์",
+        "โวลต์มิเตอร์",
+        "ไฮโกรมิเตอร์"
+      ],
+      "answer": 2,
+      "explanation": "ต่อขนานกับอุปกรณ์"
+    },
+    {
+      "id": "electricbasic-004",
+      "difficulty": "medium",
+      "question": "ฟิวส์ใช้เพื่ออะไร",
+      "choices": [
+        "เพิ่มแรงดัน",
+        "เก็บประจุ",
+        "ลดความร้อน",
+        "ป้องกันกระแสไฟฟ้าเกิน"
+      ],
+      "answer": 3,
+      "explanation": "ฟิวส์ขาดเมื่อกระแสเกิน"
+    },
+    {
+      "id": "electricbasic-005",
+      "difficulty": "medium",
+      "question": "วงจรต่ออนุกรม กระแสไฟฟ้าผ่านตัวต้านทานแต่ละตัวเป็นอย่างไร",
+      "choices": [
+        "เท่ากันทุกตัว",
+        "ต่างกันตามความต้านทาน",
+        "เป็นศูนย์",
+        "ไม่แน่นอน"
+      ],
+      "answer": 0,
+      "explanation": "มีทางเดินเดียว"
+    },
+    {
+      "id": "electricbasic-006",
+      "difficulty": "medium",
+      "question": "กำลังไฟฟ้า P เท่ากับข้อใด",
+      "choices": [
+        "V ÷ I",
+        "V × I",
+        "I ÷ V",
+        "V + I"
+      ],
+      "answer": 1,
+      "explanation": "กำลัง = ความต่างศักย์ × กระแส"
+    },
+    {
+      "id": "electricbasic-007",
+      "difficulty": "hard",
+      "question": "เครื่องใช้ 220 V กระแส 5 A กำลังไฟฟ้าเท่าใด",
+      "choices": [
+        "44 W",
+        "225 W",
+        "1,100 W",
+        "215 W"
+      ],
+      "answer": 2,
+      "explanation": "220 × 5"
+    },
+    {
+      "id": "electricbasic-008",
+      "difficulty": "hard",
+      "question": "ค่าไฟหน่วยละ 4 บาท ใช้ 50 หน่วย ค่าไฟกี่บาท",
+      "choices": [
+        "54",
+        "46",
+        "12.5",
+        "200"
+      ],
+      "answer": 3,
+      "explanation": "50 × 4"
+    }
+  ]
+}

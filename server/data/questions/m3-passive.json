@@ -1,0 +1,112 @@
+{
+  "grade": "m3",
+  "topic": "passive",
+  "title": "Passive Voice",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "passive-001",
+      "difficulty": "easy",
+      "question": "The cake ___ by my mother.",
+      "choices": [
+        "was made",
+        "made",
+        "makes",
+        "is make"
+      ],
+      "answer": 0,
+      "explanation": "ประโยค passive ใช้ be + V3"
+    },
+    {
+      "id": "passive-002",
+      "difficulty": "easy",
+      "question": "ประโยค \"She writes a letter.\" เปลี่ยนเป็น passive ได้ข้อใด",
+      "choices": [
+        "A letter is writing by her.",
+        "A letter is written by her.",
+        "A letter written her.",
+        "A letter writes by her."
+      ],
+      "answer": 1,
+      "explanation": "is + V3 + by"
+    },
+    {
+      "id": "passive-003",
+      "difficulty": "easy",
+      "question": "รูป V3 ของ \"see\" คือข้อใด",
+      "choices": [
+        "saw",
+        "seeing",
+        "seen",
+        "sees"
+      ],
+      "answer": 2,
+      "explanation": "see - saw - seen"
+    },
+    {
+      "id": "passive-004",
+      "difficulty": "medium",
+      "question": "English ___ all over the world.",
+      "choices": [
+        "speaks",
+        "speaking",
+        "spoke",
+        "is spoken"
+      ],
+      "answer": 3,
+      "explanation": "กรรมเป็นประธาน ใช้ is + V3"
+    },
+    {
+      "id": "passive-005",
+      "difficulty": "medium",
+      "question": "The window ___ yesterday.",
+      "choices": [
+        "was broken",
+        "were broken",
+        "is broken",
+        "breaks"
+      ],
+      "answer": 0,
+      "explanation": "ประธานเอกพจน์ อดีต ใช้ was + V3"
+    },
+    {
+      "id": "passive-006",
+      "difficulty": "medium",
+      "question": "The letters ___ by the secretary.",
+      "choices": [
+        "was typed",
+        "were typed",
+        "is typing",
+        "are typing"
+      ],
+      "answer": 1,
+      "explanation": "ประธานพหูพจน์ อดีต"
+    },
+    {
+      "id": "passive-007",
+      "difficulty": "hard",
+      "question": "\"People speak French in Canada.\" เปลี่ยนเป็น passive ได้ข้อใด",
+      "choices": [
+        "French speaks in Canada.",
+        "French is spoke in Canada.",
+        "French is spoken in Canada.",
+        "French was spoken in Canada."
+      ],
+      "answer": 2,
+      "explanation": "ปัจจุบันง่าย ใช้ is + V3"
+    },
+    {
+      "id": "passive-008",
+      "difficulty": "hard",
+      "question": "The thief ___ by the police next week.",
+      "choices": [
+        "will catch",
+        "is caught",
+        "was caught",
+        "will be caught"
+      ],
+      "answer": 3,
+      "explanation": "อนาคต passive ใช้ will be + V3"
+    }
+  ]
+}

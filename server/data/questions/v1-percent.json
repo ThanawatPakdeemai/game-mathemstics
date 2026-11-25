@@ -1,0 +1,112 @@
+{
+  "grade": "v1",
+  "topic": "percent",
+  "title": "ร้อยละและอัตราส่วน",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "percent-001",
+      "difficulty": "easy",
+      "question": "50% ของ 200 เท่ากับเท่าใด",
+      "choices": [
+        "100",
+        "50",
+        "150",
+        "25"
+      ],
+      "answer": 0,
+      "explanation": "200 × 50/100"
+    },
+    {
+      "id": "percent-002",
+      "difficulty": "easy",
+      "question": "ร้อยละ 25 เขียนเป็นเศษส่วนได้เท่าใด",
+      "choices": [
+        "1/2",
+        "1/4",
+        "2/5",
+        "25"
+      ],
+      "answer": 1,
+      "explanation": "25/100 = 1/4"
+    },
+    {
+      "id": "percent-003",
+      "difficulty": "easy",
+      "question": "สินค้าราคา 400 บาท ลดราคา 10% ลดไปกี่บาท",
+      "choices": [
+        "10",
+        "4",
+        "40",
+        "400"
+      ],
+      "answer": 2,
+      "explanation": "400 × 10/100"
+    },
+    {
+      "id": "percent-004",
+      "difficulty": "medium",
+      "question": "ซื้อของ 800 บาท ได้ส่วนลด 15% ต้องจ่ายเท่าใด",
+      "choices": [
+        "120",
+        "650",
+        "715",
+        "680"
+      ],
+      "answer": 3,
+      "explanation": "ลด 120 บาท เหลือ 680"
+    },
+    {
+      "id": "percent-005",
+      "difficulty": "medium",
+      "question": "อัตราส่วน 3 : 5 ถ้าจำนวนแรกเป็น 12 จำนวนหลังเป็นเท่าใด",
+      "choices": [
+        "20",
+        "15",
+        "18",
+        "7"
+      ],
+      "answer": 0,
+      "explanation": "12 ÷ 3 × 5"
+    },
+    {
+      "id": "percent-006",
+      "difficulty": "medium",
+      "question": "ซื้อมา 500 บาท ขายไป 600 บาท ได้กำไรกี่เปอร์เซ็นต์",
+      "choices": [
+        "10%",
+        "20%",
+        "25%",
+        "15%"
+      ],
+      "answer": 1,
+      "explanation": "กำไร 100/500 × 100"
+    },
+    {
+      "id": "percent-007",
+      "difficulty": "hard",
+      "question": "ขายได้ 1,200 บาท กำไร 20% ของราคาทุน ราคาทุนเท่าใด",
+      "choices": [
+        "960",
+        "1,440",
+        "1,000",
+        "1,150"
+      ],
+      "answer": 2,
+      "explanation": "ราคาขาย = ทุน × 1.2"
+    },
+    {
+      "id": "percent-008",
+      "difficulty": "hard",
+      "question": "เงินต้น 10,000 บาท ดอกเบี้ยอย่างง่าย 5% ต่อปี นาน 2 ปี ได้ดอกเบี้ยเท่าใด",
+      "choices": [
+        "500",
+        "1,050",
+        "2,000",
+        "1,000"
+      ],
+      "answer": 3,
+      "explanation": "10,000 × 0.05 × 2"
+    }
+  ]
+}

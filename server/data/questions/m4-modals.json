@@ -1,0 +1,112 @@
+{
+  "grade": "m4",
+  "topic": "modals",
+  "title": "Modal Verbs",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "modals-001",
+      "difficulty": "easy",
+      "question": "You ___ wear a helmet when riding a motorbike. (เป็นข้อบังคับ)",
+      "choices": [
+        "may",
+        "must",
+        "might",
+        "can"
+      ],
+      "answer": 1,
+      "explanation": "must ใช้แสดงข้อบังคับหรือความจำเป็น"
+    },
+    {
+      "id": "modals-002",
+      "difficulty": "easy",
+      "question": "I ___ swim when I was five.",
+      "choices": [
+        "can",
+        "must",
+        "could",
+        "should"
+      ],
+      "answer": 2,
+      "explanation": "could คืออดีตของ can"
+    },
+    {
+      "id": "modals-003",
+      "difficulty": "easy",
+      "question": "Which sentence is correct?",
+      "choices": [
+        "She cans speak English.",
+        "She can speaks English.",
+        "She can to speak English.",
+        "She can speak English."
+      ],
+      "answer": 3,
+      "explanation": "modal verb ตามด้วยกริยาช่อง 1"
+    },
+    {
+      "id": "modals-004",
+      "difficulty": "medium",
+      "question": "You ___ smoke here. It is forbidden.",
+      "choices": [
+        "mustn't",
+        "needn't",
+        "may",
+        "can"
+      ],
+      "answer": 0,
+      "explanation": "mustn't แสดงข้อห้าม"
+    },
+    {
+      "id": "modals-005",
+      "difficulty": "medium",
+      "question": "You look sick. You ___ see a doctor.",
+      "choices": [
+        "mustn't",
+        "should",
+        "might not",
+        "would"
+      ],
+      "answer": 1,
+      "explanation": "should ใช้ให้คำแนะนำ"
+    },
+    {
+      "id": "modals-006",
+      "difficulty": "medium",
+      "question": "\"May I come in?\" ใช้เพื่ออะไร",
+      "choices": [
+        "ให้คำแนะนำ",
+        "บอกความสามารถ",
+        "ขออนุญาต",
+        "บอกข้อห้าม"
+      ],
+      "answer": 2,
+      "explanation": "may ใช้ขออนุญาตอย่างสุภาพ"
+    },
+    {
+      "id": "modals-007",
+      "difficulty": "hard",
+      "question": "His car is outside, so he ___ be at home.",
+      "choices": [
+        "can't",
+        "needn't",
+        "shan't",
+        "must"
+      ],
+      "answer": 3,
+      "explanation": "must ใช้คาดเดาด้วยความมั่นใจสูง"
+    },
+    {
+      "id": "modals-008",
+      "difficulty": "hard",
+      "question": "You ___ bring your passport. It isn't necessary.",
+      "choices": [
+        "don't have to",
+        "mustn't",
+        "can't",
+        "shouldn't"
+      ],
+      "answer": 0,
+      "explanation": "don't have to = ไม่จำเป็นต้อง"
+    }
+  ]
+}

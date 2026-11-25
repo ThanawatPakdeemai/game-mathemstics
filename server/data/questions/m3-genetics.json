@@ -1,0 +1,112 @@
+{
+  "grade": "m3",
+  "topic": "genetics",
+  "title": "พันธุกรรม",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "genetics-001",
+      "difficulty": "easy",
+      "question": "สารพันธุกรรมในเซลล์คือสารใด",
+      "choices": [
+        "ATP",
+        "DNA",
+        "น้ำตาล",
+        "ไขมัน"
+      ],
+      "answer": 1,
+      "explanation": "DNA เก็บข้อมูลพันธุกรรม"
+    },
+    {
+      "id": "genetics-002",
+      "difficulty": "easy",
+      "question": "หน่วยพันธุกรรมที่ควบคุมลักษณะทางพันธุกรรมเรียกว่า",
+      "choices": [
+        "เซลล์",
+        "ฮอร์โมน",
+        "ยีน",
+        "เอนไซม์"
+      ],
+      "answer": 2,
+      "explanation": "ยีนอยู่บน DNA ในโครโมโซม"
+    },
+    {
+      "id": "genetics-003",
+      "difficulty": "easy",
+      "question": "ผู้ได้รับการยกย่องเป็นบิดาแห่งพันธุศาสตร์คือ",
+      "choices": [
+        "ชาร์ลส์ ดาร์วิน",
+        "หลุยส์ ปาสเตอร์",
+        "โรเบิร์ต ฮุก",
+        "เกรเกอร์ เมนเดล"
+      ],
+      "answer": 3,
+      "explanation": "เมนเดลทดลองกับถั่วลันเตา"
+    },
+    {
+      "id": "genetics-004",
+      "difficulty": "medium",
+      "question": "เซลล์ร่างกายของมนุษย์มีโครโมโซมกี่แท่ง",
+      "choices": [
+        "46 แท่ง",
+        "23 แท่ง",
+        "44 แท่ง",
+        "48 แท่ง"
+      ],
+      "answer": 0,
+      "explanation": "23 คู่ รวมเป็น 46 แท่ง"
+    },
+    {
+      "id": "genetics-005",
+      "difficulty": "medium",
+      "question": "จีโนไทป์ Tt เมื่อ T เป็นลักษณะเด่น จะแสดงฟีโนไทป์แบบใด",
+      "choices": [
+        "ลักษณะด้อย",
+        "ลักษณะเด่น",
+        "ผสมกันทั้งสอง",
+        "ไม่แสดงลักษณะ"
+      ],
+      "answer": 1,
+      "explanation": "ลักษณะเด่นข่มลักษณะด้อย"
+    },
+    {
+      "id": "genetics-006",
+      "difficulty": "medium",
+      "question": "โครโมโซมเพศของเพศหญิงปกติคือ",
+      "choices": [
+        "XY",
+        "XO",
+        "XX",
+        "YY"
+      ],
+      "answer": 2,
+      "explanation": "เพศชายเป็น XY"
+    },
+    {
+      "id": "genetics-007",
+      "difficulty": "hard",
+      "question": "ผสม Tt × Tt สัดส่วนลูกที่มีลักษณะด้อย (tt) เท่าใด",
+      "choices": [
+        "1/2",
+        "3/4",
+        "0",
+        "1/4"
+      ],
+      "answer": 3,
+      "explanation": "TT : Tt : tt = 1 : 2 : 1"
+    },
+    {
+      "id": "genetics-008",
+      "difficulty": "hard",
+      "question": "พ่อแม่มีเลือดหมู่ A (จีโนไทป์ AO) และ B (BO) ลูกมีหมู่เลือดใดได้บ้าง",
+      "choices": [
+        "A, B, AB, O",
+        "A และ B เท่านั้น",
+        "AB เท่านั้น",
+        "O เท่านั้น"
+      ],
+      "answer": 0,
+      "explanation": "AO × BO ได้ AB, AO, BO, OO"
+    }
+  ]
+}

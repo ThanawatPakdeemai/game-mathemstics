@@ -1,0 +1,112 @@
+{
+  "grade": "m1",
+  "topic": "integers",
+  "title": "จำนวนเต็ม",
+  "source": "AI generated",
+  "questions": [
+    {
+      "id": "integers-001",
+      "difficulty": "easy",
+      "question": "ผลลัพธ์ของ (-5) + 8 เท่ากับเท่าใด",
+      "choices": [
+        "-3",
+        "13",
+        "-13",
+        "3"
+      ],
+      "answer": 3,
+      "explanation": "-5 + 8 = 3"
+    },
+    {
+      "id": "integers-002",
+      "difficulty": "easy",
+      "question": "ข้อใดเรียงจากน้อยไปมากถูกต้อง",
+      "choices": [
+        "-7, -2, 0, 4",
+        "0, -2, -7, 4",
+        "4, 0, -2, -7",
+        "-2, -7, 0, 4"
+      ],
+      "answer": 0,
+      "explanation": "จำนวนลบที่ค่าสัมบูรณ์มากกว่าจะน้อยกว่า"
+    },
+    {
+      "id": "integers-003",
+      "difficulty": "easy",
+      "question": "ค่าสัมบูรณ์ของ -9 เท่ากับเท่าใด",
+      "choices": [
+        "-9",
+        "9",
+        "0",
+        "-1"
+      ],
+      "answer": 1,
+      "explanation": "ค่าสัมบูรณ์คือระยะจาก 0 จึงเป็นบวกเสมอ"
+    },
+    {
+      "id": "integers-004",
+      "difficulty": "medium",
+      "question": "(-6) × 4 เท่ากับเท่าใด",
+      "choices": [
+        "24",
+        "-10",
+        "-24",
+        "10"
+      ],
+      "answer": 2,
+      "explanation": "ลบคูณบวกได้ลบ"
+    },
+    {
+      "id": "integers-005",
+      "difficulty": "medium",
+      "question": "(-36) ÷ (-9) เท่ากับเท่าใด",
+      "choices": [
+        "-4",
+        "27",
+        "-27",
+        "4"
+      ],
+      "answer": 3,
+      "explanation": "ลบหารลบได้บวก"
+    },
+    {
+      "id": "integers-006",
+      "difficulty": "medium",
+      "question": "12 - (-5) เท่ากับเท่าใด",
+      "choices": [
+        "17",
+        "7",
+        "-7",
+        "-17"
+      ],
+      "answer": 0,
+      "explanation": "ลบด้วยลบเท่ากับบวก 12 + 5 = 17"
+    },
+    {
+      "id": "integers-007",
+      "difficulty": "hard",
+      "question": "ค่าของ 3 + (-4) × 5 เท่ากับเท่าใด",
+      "choices": [
+        "-5",
+        "-17",
+        "35",
+        "23"
+      ],
+      "answer": 1,
+      "explanation": "คูณก่อน -20 แล้ว 3 - 20 = -17"
+    },
+    {
+      "id": "integers-008",
+      "difficulty": "hard",
+      "question": "ค่าของ (-2)³ เท่ากับเท่าใด",
+      "choices": [
+        "8",
+        "-6",
+        "-8",
+        "6"
+      ],
+      "answer": 2,
+      "explanation": "(-2)(-2)(-2) = -8"
+    }
+  ]
+}
